@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="utf-8">
+	<!-- 	<base href="/"> -->
+	<title>New Samara</title>
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+	<!-- Template Basic Images Start -->
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+	<!-- Template Basic Images End -->
+	<!-- Custom Browsers Color Start -->
+	<meta name="theme-color" content="#000">
+	<!-- Custom Browsers Color End -->
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+
+	<header class="header" id="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-auto col-md-2">
+					<div class="header__logo_wrap">
+						<img src="img/_main/logo.png" alt="Жилой микрорайон Новая Самара" class="header__logo">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm col-md">
+					<div class="header__links">
+						<ul class="header__links_list">
+							<li class="header__links_item">
+								<a href="#" class="header__link header__link_calc">Расчитать ипотеку</a>
+							</li>
+							<li class="header__links_item">
+								<a href="#" class="header__link header__link_map">Смотреть карту</a>
+							</li>
+							<li class="header__links_item">
+								<a href="#" class="header__link header__link_phone">+7 (846) 254-51-46</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-auto d-none d-lg-block">
+					<div class="header__call-me">
+						<a href="#" class="header__link header__call-me_link">Перезвоните мне</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+
+	<section class="hero">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col">
+					<div class="hero__slider">
+						<div class="hero__slide">
+							<div class="row">
+								<div class="col-xl-2 slide__content slide__content_left">
+								</div>
+								<div class="col-xl-5 offset-xl-5 slide__content slide__content_right">
+									<strong class="slide__speech_right">Ипотека
+										<br> от 6%</strong>
+									<p class="slide__desc_right">Банки ВТБ, Сбербанк и Абсолют снижают ставки по ипотеке в рамках программы господдержки!</p>
+									<button class="btn btn__slide">Подробнее</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<section class="callback">
+		<div class="container">
+			<form action="" class="form">
+				<!-- Hidden Required Fields -->
+				<input type="hidden" name="project_name" value="New Samara">
+				<input type="hidden" name="admin_email" value="">
+				<input type="hidden" name="form_subject" value="New Samara">
+				<!-- END Hidden Required Fields -->
+				<div class="row">
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input" type="text" name="name" placeholder="Имя" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input" type="tel" name="phone" placeholder="Телефон" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="btn callback__input callback__input_btn" type="button" value="Перезвоните мне">
+					</div>
+				</div>
+			</form>
+			<p class="form__desc">Нажимая на кнопку «Перезвоните мне» я даю
+				<a href="#" class="form__desc_policy">согласие на обработку
+					<span class="form__desc_policy_underline">персональных данных</span>
+				</a>
+			</p>
+		</div>
+	</section>
+
+
+	<section class="advantages" id="advantages">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsFirstLine">
+					<div class="advantages__item_img"></div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_strong"> {{ item.first }}</div>
+						<div class="advantages__item_small"> {{ item.second }}</div>
+					</div>
+				</div>
+
+
+				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsSecondLine">
+					<div class="advantages__item_img"></div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_small"> {{ item.first }}</div>
+						<div class="advantages__item_strong"> {{ item.second }}</div>
+					</div>
+				</div>
+
+
+				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsThirdLine">
+					<div class="advantages__item_img"></div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_small"> {{ item.first }}</div>
+						<div class="advantages__item_small"> {{ item.second }}</div>
+					</div>
+				</div>
+
+
+				<!-- <div class="col-12 col-md-6 advantages__item" v-for="(item, index) in items" :key="index">
+					<div class="advantages__item_img advantages__item_img_house">
+					</div>
+					<div class="advantages__item_desc">
+						<div class="advantages__item_strong advantages__item_string"> {{ item.strong }}</div>
+						<div class="advantages__item_small advantages__item_string"> {{ item.small }}</div>
+					</div>
+				</div> -->
+
+			</div>
+		</div>
+	</section>
+
+
+	<section class="apartment" id="apartment">
+
+		<div class="section__title  apartment__title">
+			<h2 class="title">{{ title }}</h2>
+		</div>
+
+		<div class="apartment__options">
+			<ul class="options__list">
+				<li class="options__item" v-for="(option, index) in options" :key="index">
+					{{ option.option }}
+				</li>
+			</ul>
+		</div>
+
+		<div class="apartment__layouts">
+			<div class="container">
+				<div class="row">
+					<div class="col-6" v-for="(layout, index) in layouts" :key="index">
+						<div class="layout">
+
+							<div class="layout__info">
+								<div class="layout__desc layout__area">{{ layout.area }} м
+									<sup>2</sup>
+								</div>
+								<div class="layout__desc layout__value">{{ layout.value }} руб.</div>
+								<a href="#" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
+								<a href="#" class="btn layout__btn layout__btn_calc">Расчитать ипотеку</a>
+							</div>
+
+							<div class="layout__plan">
+								<img :src="layout.img" :alt="layout.rooms" class="layout__img">
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+
+	<section class="map" id="map_ya">
+		<div class="map__wrapper">
+			<div id="map"></div>
+		</div>
+	</section>
+
+
+	<!--
+		===Scripts===
+	-->
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
+	<script src="js/scripts.min.js"></script>
+
+</body>
+
+</html>

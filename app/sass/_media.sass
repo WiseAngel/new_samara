@@ -1,0 +1,178 @@
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+
+//Extra large: ≥1200px
++media-breakpoint-down(xl)
+
+//Large: ≥992px
++media-breakpoint-down(lg)
+  .header
+    &__link
+      font-size: 14px
+      &_phone
+        font-size: 16px
+    &__links
+      &_item
+        padding-left: 30px
+
+  .advantages
+    padding: 60px 0
+    background: url(../img/_advantages/advantages__bg_mobile.png) no-repeat left bottom
+    background-size: cover
+    &__item
+      margin: 25px 0
+      justify-content: flex-start
+      width: 100%
+      &_desc
+        text-align: left
+      &_img
+        width: 90px
+        height: 90px
+        &:before
+          background-size: contain
+          width: 60px
+          height: 60px
+      &_strong
+        font-size: 26px
+      &_small
+        font-size: 14px
+//Medium: ≥768px
++media-breakpoint-down(md)
+  .header
+    &__links
+      &_item
+        padding-left: 25px
+        &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3)
+          &:before
+            top: 3px
+            width: 20px
+            height: 20px
+            background-size: contain
+  .callback
+    &__input
+      padding: 15px
+      margin-bottom: 40px
+      &_btn
+        padding: 19px 0
+  .form
+    margin-bottom: 10px
+    &__col
+      margin: 0
+
+  .advantages__item
+    &_desc
+      padding-left: 10px
+
+//Small: ≥576px
++media-breakpoint-down(sm)
+  .header
+    &__link
+      font-size: 16px
+      &_phone
+        font-size: 18px
+    &__links
+      &_item
+        padding-left: 30px
+        &:nth-of-type(2)
+          display: none
+        &:nth-of-type(1)
+          order: 2
+      &_list
+        display: flex
+        flex-direction: column
+
+  .advantages
+    padding: 25px 0 55px
+    &__item
+      // justify-content: center
+      padding-left: 20%
+      &:nth-of-type(1)
+        order: 1
+      &:nth-of-type(2)
+        order: 4
+      &:nth-of-type(3)
+        order: 2
+      &:nth-of-type(4)
+        order: 5
+      &:nth-of-type(5)
+        order: 3
+      &:nth-of-type(6)
+        order: 6
+      &_img
+        width: 100px
+        height: 100px
+        &:before
+          width: 65px
+          height: 65px
+      &_strong
+        font-size: 28px
+      &_small
+        font-size: 16px
+      &_desc
+        padding-left: 20px
+
+//Extra small: >0
++media-breakpoint-down(xs)
+  .header
+    &__logo_wrap
+      margin-bottom: 25px
+    &__link
+      font-size: 14px
+      &_phone
+        font-size: 16px
+    &__links
+      &_item
+        &:nth-of-type(1)
+          &:before
+            width: 18px
+            height: 25px
+            top: 0
+        &:nth-of-type(3)
+          padding-left: 0
+          margin-bottom: 10px
+          &:before
+            background: none
+          .header__link_phone
+            color: $button_main
+            &:before
+              border-bottom: none
+  .form
+    &__desc
+      padding: 0 10px
+      &_policy
+        text-decoration: none
+        &_underline
+          text-decoration: underline
+        &:hover
+          text-decoration: none
+  
+  .advantages
+    &__item
+      padding-left: 0
+      flex-direction: column
+      &_desc
+        padding-left: 0
+        text-align: center
+      &_img
+        margin: 0 0 20px 0
+
+
+/*==========  Mobile First  ==========*/
+
+//Extra small: <576px
++media-breakpoint-up(xs)
+
+//Small: ≤576px
++media-breakpoint-up(sm)
+
+//Medium: ≤768px
++media-breakpoint-up(md)
+
+//Large: ≤992px
++media-breakpoint-up(lg)
+
+//Extra large: ≤1200px
++media-breakpoint-up(xl)

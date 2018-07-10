@@ -1,0 +1,83 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+
+::placeholder
+	color: $placeholder
+
+::selection
+	background-color: $accent
+	color: #fff
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $default-font
+	overflow-x: hidden
+	input, textarea
+			border: $dorder_main 1px solid
+			outline: none
+			&:focus:required:invalid
+				border-color: red
+			&:required:valid
+				border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.text-center
+	text-align: center
+
+.fontello
+	&_phone, &_location
+		font-size: 20px
+		color: red
+
+.btn
+	color: #ffffff
+	font-size: 16px
+	font-weight: 400
+	text-transform: uppercase
+	border: none
+	background-color: $button_main
+	cursor: pointer
+	transition: all .3s
+	&:hover
+		background-color: darken($button_main, 15%)	
+
+.section__title
+	position: relative
+	padding: 120px 0 107px
+	&:before
+		position: absolute
+		content: ''
+		top: 0
+		left: 0
+		height: 100%
+		width: 100%
+		background-color: rgba(#fff, 0.9)
+
+	.title
+		position: relative
+		margin: 0
+		font-size: 50px
+		font-family: ICBR	
+		text-align: center
+		line-height: 1	
+	
+		
+@import "header"
+@import "hero"
+@import "callback"
+@import "advantages"
+@import "apartment"
+@import "map"
+@import "media"

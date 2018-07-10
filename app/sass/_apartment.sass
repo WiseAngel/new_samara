@@ -1,0 +1,93 @@
+.apartment
+  &__title
+    background: url(../img/_apartment-layout/apartment-layout__title_small.png) repeat center
+    background-size: cover
+  
+  &__options
+    padding: 60px 0
+    background: $accent
+  
+  &__layouts
+    background: url(../img/_apartment-layout/apartment-layout__bg.png) no-repeat center
+    background-size: cover
+
+.options
+  &__list
+    margin: 0
+    padding: 0
+    display: flex
+    justify-content: center
+  
+  &__item
+    position: relative
+    padding-left: 20px
+    margin: 0 55px
+    list-style-type: none
+    font-size: 24px
+    text-transform: uppercase
+    text-decoration: underline
+    cursor: pointer
+    &:before
+      position: absolute
+      content: ''
+      top: 50%
+      left: 0
+      width: 8px
+      height: 8px
+      border-radius: 50%
+      background-color: rgba(#1c1c1c, .5)
+      transform: translateY(-50%)
+
+.layout
+  margin: 15px 0
+  padding: 30px
+  background-color: #fff
+  display: flex
+  justify-content: space-between
+  align-items: center
+  &__info
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    flex-basis: 60%
+
+  &__desc
+    position: relative
+    margin-bottom: 20px
+    padding-left: 50px
+    font-size: 20px
+    font-weight: bold
+    &:before
+      position: absolute
+      content: ''
+      top: 0
+      left: 0
+      height: 34px
+      width: 34px
+  &__area
+    &:before
+      background: url(../img/_apartment-layout/apartment-layout__layouts_S.png) no-repeat center
+
+  &__value
+    &:before
+      background: url(../img/_apartment-layout/apartment-layout__layouts_money.png) no-repeat center
+
+  &__btn
+    display: inline-block
+    text-decoration: none
+    &:hover
+      text-decoration: none
+      color: #fff
+    &_more
+      padding: 12px 28.1px 8px
+      margin-bottom: 20px
+    &_calc
+      padding: 12px 25px 8px
+      background-color: $button_second
+      &:hover
+        background-color: darken($button_second, 5%)
+  
+  &__img
+    max-width: 100%
+

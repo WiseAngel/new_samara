@@ -1,0 +1,60 @@
+.hero
+  background: url(../img/_hero/edging_grass.png) no-repeat bottom left, url(../img/_hero/edging_grass_vertical.png) no-repeat bottom left
+  &__slider
+  &__slide
+    position: relative
+    &:before
+      position: absolute
+      content: ''
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      z-index: -1
+      background: url(../img/_hero/family.png) no-repeat bottom left 30%
+
+.slide
+  &__content
+    &_center
+      // position: relative
+      // z-index: -1
+      // background: url(../img/_hero/family.png) no-repeat center
+    &_right
+      position: relative
+      padding-bottom: 80px
+      z-index: 1
+      background: url(../img/_hero/circle.png) no-repeat top right
+  &__speech
+    &_right
+      position: absolute
+      top: 50px
+      right: 80px
+      text-transform: uppercase
+      font-size: 62px
+      font-weight: bold
+      line-height: 1.2
+      color: #ffffff
+  &__desc
+    &_right
+      padding: 350px 0 20px
+      font-size: 33px
+      line-height: 1.2
+      font-weight: bold
+      text-transform: uppercase
+      color: $button_second
+
+.btn
+  &__slide
+    padding: 10px 30px
+    font-size: 28px
+    text-transform: uppercase
+    color: #ffffff
+    background-color: $button_second
+    border: none
+    border-radius: 4px
+    cursor: pointer
+    &:hover
+      background-color: lighten($button_second, 5%)
+    &:focus
+      border: none
+      outline: none
