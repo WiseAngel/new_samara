@@ -340,6 +340,4 @@ $(function () {
 		}
 	});
 });
-$(function () {
-	alert('hello');
-});
+$(function () {});

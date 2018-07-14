@@ -37,7 +37,6 @@ let apartment = new Vue({
         img: 'img/_apartment-layout/apartment-layout__1room_4.jpg',
         rooms: '1-комнатная квартира'
       },
-      
     ]
   },
 

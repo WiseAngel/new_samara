@@ -4,6 +4,7 @@
 *.lock
 !yarn.lock
 *.log
+package-lock.json
 out/
 dist/
 node_modules/
