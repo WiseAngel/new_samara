@@ -160,7 +160,7 @@
 
 		<div class="apartment__options">
 			<ul class="options__list">
-				<li class="options__item" v-for="(option, index) in options" :key="index">
+				<li class="options__item" v-for="(option, index) in options" :key="index" @click="changeLayoutOptions(index)"  :class="{ layout_active: option.isActive}">
 					{{ option.option }}
 				</li>
 			</ul>
@@ -169,9 +169,8 @@
 		<div class="apartment__layouts">
 			<div class="container">
 				<div class="row">
-					<div class="col-6" v-for="(layout, index) in layouts" :key="index">
+					<div class="col-6" v-for="(layout, index) in sortedLayouts.slice(offset, offset + perPage)" :key="index">
 						<div class="layout">
-
 							<div class="layout__info">
 								<div class="layout__desc layout__area">{{ layout.area }} м
 									<sup>2</sup>
@@ -180,14 +179,15 @@
 								<a href="#" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
 								<a href="#" class="btn layout__btn layout__btn_calc">Расчитать ипотеку</a>
 							</div>
-
 							<div class="layout__plan">
-								<img :src="layout.img" :alt="layout.rooms" class="layout__img">
+								<img :src="layout.img" :alt="layout.alt" class="layout__img">
 							</div>
-
 						</div>
-
 					</div>
+				</div>
+				<div class="layouts__nav">
+					<button @click="changeOffset(-perPage)" :disabled="offset <= 0">prev</button>
+					<button @click="changeOffset(perPage)" :disabled="offset + perPage >= sortedLayouts.length">next</button>
 				</div>
 			</div>
 		</div>

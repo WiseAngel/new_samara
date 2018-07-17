@@ -1,6 +1,7 @@
 .idea/
 .vscode/
 .DS_Store
+.htaccess
 *.lock
 !yarn.lock
 *.log
