@@ -85,8 +85,11 @@
     &_desc
       padding-left: 10px
 
-  .apartment__options
-    padding: 35px 0
+  .apartment
+    &__options
+      padding: 35px 0
+    &__layouts
+      padding: 30px 0
   .options
     &__list
       flex-direction: column
@@ -108,6 +111,9 @@
 
 //Small: ≥576px
 +media-breakpoint-down(sm)
+  .apartment
+    &__layouts
+      padding: 15px 0
   .section__title
     padding: 80px 0
   .title
