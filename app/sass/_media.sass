@@ -1,14 +1,16 @@
 @import "vars"
 
-
 /*==========  Desktop First  ==========*/
-
 
 //Extra large: ≥1200px
 +media-breakpoint-down(xl)
 
 //Large: ≥992px
 +media-breakpoint-down(lg)
+  .section__title
+    padding: 100px 0
+  .title
+    font-size: 48px
   .header
     &__link
       font-size: 14px
@@ -39,8 +41,25 @@
         font-size: 26px
       &_small
         font-size: 14px
+
+  .options
+    &__item
+      font-size: 22px
+  .layout
+    &__desc
+      padding-left: 45px
+    &__btn
+      font-size: 15px
+      &_more
+        padding: 12px 21.1px 8px
+      &_calc
+        padding: 12px 18px 8px
 //Medium: ≥768px
 +media-breakpoint-down(md)
+  .section__title
+    padding: 80px 0
+  .title
+    font-size: 46px
   .header
     &__links
       &_item
@@ -66,8 +85,33 @@
     &_desc
       padding-left: 10px
 
+  .apartment__options
+    padding: 35px 0
+  .options
+    &__list
+      flex-direction: column
+      align-items: center
+    &__item
+      padding: 15px 0
+      &:before
+        display: none
+  .layout
+    &_active
+      font-size: 24px
+      line-height: 1.5
+    &__btn
+      font-size: 16px
+      &_more
+        padding: 12px 41.1px 8px
+      &_calc
+        padding: 12px 38px 8px
+
 //Small: ≥576px
 +media-breakpoint-down(sm)
+  .section__title
+    padding: 80px 0
+  .title
+    font-size: 38px
   .header
     &__link
       font-size: 16px
@@ -113,9 +157,41 @@
         font-size: 16px
       &_desc
         padding-left: 20px
-
+  .options
+    &__item
+      padding: 10px 0
+      font-size: 15px
+  .layout
+    &_active
+      font-size: 17px
+      line-height: 1.45
+    &__info
+      justify-content: space-around
+      flex-direction: row
+      &_col
+        order: 2
+    &__plan
+      margin-bottom: 30px
+      display: flex
+      justify-content: center
+      &_col
+        order: 1
+    &__desc
+      margin-bottom: 0
+    &__btn
+      font-size: 16px
+      &_desc
+        order: 3
+      &_more
+        padding: 12px 21.1px 8px
+      &_calc
+        padding: 12px 18px 8px
 //Extra small: >0
 +media-breakpoint-down(xs)
+  .section__title
+    padding: 60px 0
+  .title
+    font-size: 28px
   .header
     &__logo_wrap
       margin-bottom: 25px
@@ -159,7 +235,30 @@
       &_img
         margin: 0 0 20px 0
 
-
+  .layout
+    &__info
+      justify-content: space-around
+      flex-direction: column
+    &__plan
+      margin-bottom: 30px
+      display: flex
+      justify-content: center
+    &__desc
+      margin-bottom: 15px
+    &__img
+      width: 100%
+      height: 100%
+    &__btn
+      font-size: 16px
+      &_desc
+        margin-top: 15px
+        flex-direction: column
+      &_more
+        margin-bottom: 15px
+        text-align: center
+      &_calc
+        text-align: center
+        
 /*==========  Mobile First  ==========*/
 
 //Extra small: <576px

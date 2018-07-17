@@ -78,107 +78,30 @@ let apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1
 			},
+
 			{
-				area: '38,08',
-				value: '1 466 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_1.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '37,86',
-				value: '1 455 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_2.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '37,86',
-				value: '1 476 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_3.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_4.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '38,08',
-				value: '1 567 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_5.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '38,84',
-				value: '1 679 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_6.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '38,84',
-				value: '1 500 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_7.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
-				alt: '1-комнатная квартира',
-				rooms: 1
-			},
-			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
+				area: '59,46',
+				value: '2 378 000',
+				img: 'img/_apartment-layout/apartment-layout__2room_1.jpg',
 				alt: '2-комнатная квартира',
 				rooms: 2
 			},
 			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
+				area: '63,39',
+				value: '2 401 000',
+				img: 'img/_apartment-layout/apartment-layout__2room_2.jpg',
 				alt: '2-комнатная квартира',
 				rooms: 2
 			},
+
 			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
-				alt: '2-комнатная квартира',
-				rooms: 2
-			},
-			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
-				alt: '2-комнатная квартира',
-				rooms: 2
-			},
-			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
-				alt: '2-комнатная квартира',
-				rooms: 3
-			},
-			{
-				area: '39,53',
-				value: '1 522 000',
-				img: 'img/_apartment-layout/apartment-layout__1room_8.jpg',
-				alt: '2-комнатная квартира',
+				area: '86,56',
+				value: '3 401 000',
+				img: 'img/_apartment-layout/apartment-layout__3room_1.jpg',
+				alt: '3-комнатная квартира',
 				rooms: 3
 			},
 		],
-
-		// sortedLayouts: [],
 	},
 
 	methods: {
@@ -215,6 +138,14 @@ let apartment = new Vue({
 				return item.rooms === 1;
 			};
 		},
+
+		btnNextDisabled: function(){
+			return this.offset + this.perPage >= this.sortedLayouts.length;
+		},
+
+		btnPrevDisabled: function(){
+			return this.offset <= 0;
+		}
 	},
 
 });
