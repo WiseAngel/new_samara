@@ -1,33 +1,7 @@
-let advantages = new Vue({
+let section__advantages = new Vue({
   el: '#advantages',
   data: {
     title: 'Изучите планировки',
-    /* 	items: [{
-    			strong: '16 вариантов',
-    			small: 'планировок квартир'
-    		},
-    		{
-    			strong: 'ипотека от 6%',
-    			small: 'и рассрочка от застройщика'
-    		},
-    		{
-    			strong: 'проживают уже более',
-    			small: '8000 жителей'
-    		},
-    		{
-    			strong: 'детская и взрослая',
-    			small: 'поликлиники'
-    		},
-    		{
-    			strong: 'в шаговой доступности',
-    			small: 'школы и детский сад'
-    		},
-    		{
-    			strong: 'поддержка строительства',
-    			small: 'правительством РФ'
-    		}
-
-    	] */
 
     itemsFirstLine: [{
         first: '16 вариантов',

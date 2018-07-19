@@ -1,3 +1,9 @@
+let section__map = new Vue({
+	el: '#map_ya',
+	data: {
+		title: 'Создаем инфраструктуру',
+	}
+});
 $(function () {
 	let pointtyps = //список всех типов объектов
 		[{

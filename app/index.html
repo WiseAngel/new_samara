@@ -178,7 +178,6 @@
 											<sup>2</sup>
 										</div>
 										<div class="layout__desc layout__value">{{ layout.value }} руб.</div>
-								
 									</div>
 								</div>
 								<div class="col-md-6 layout__plan_col">
@@ -187,9 +186,9 @@
 									</div>
 								</div>
 								<div class="layout__btn_desc">
-										<a href="#" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
-										<a href="#" class="btn layout__btn layout__btn_calc">Расчитать ипотеку</a>
-									</div>
+									<a href="#" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
+									<a href="#" class="btn layout__btn layout__btn_calc">Расчитать ипотеку</a>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -204,16 +203,35 @@
 				</div>
 			</div>
 		</div>
-
 	</section>
-
-
-	<section class="map" id="map_ya">
-		<div class="map__wrapper">
-			<div id="map"></div>
+	<section class="builder" id="builder">
+		<div class="section__title  builder__title">
+			<h2 class="title">{{ titleLeft }}
+				<span class="dash_roboto">{{ dash }}</span> {{ titleRight }}</h2>
 		</div>
 	</section>
-
+	<section class="map" id="map_ya">
+		<div class="section__title  map__title">
+			<h2 class="title">{{ title }} </h2>
+		</div>
+				<div class="map__wrapper">
+					<div id="map"></div>
+				</div>
+	</section>
+	<section class="gallery" id="gallery">
+		<div class="section__title  gallery__title">
+			<h2 class="title">{{ title }} </h2>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="row no-gutters" id="lightgallery">
+					<div class="col-xl-1 col-md-2 col-sm-3 col-4 gallery__item" v-for="(img, index) in gallery" :key="index" :data-src="img.full">
+						<img :src="img.thumb">
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!--
 		===Scripts===

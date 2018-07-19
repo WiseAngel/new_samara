@@ -1,4 +1,4 @@
-let apartment = new Vue({
+let section__apartment = new Vue({
 	el: '#apartment',
 	data: {
 		title: 'Изучите планировки',
@@ -149,4 +149,4 @@ let apartment = new Vue({
 	},
 
 });
-apartment.sortedLayouts = apartment.oneRoomsApartments;
+section__apartment.sortedLayouts = section__apartment.oneRoomsApartments;
