@@ -45,6 +45,7 @@
   .options
     &__item
       font-size: 22px
+  
   .layout
     &__desc
       padding-left: 45px
@@ -54,6 +55,23 @@
         padding: 12px 21.1px 8px
       &_calc
         padding: 12px 18px 8px
+
+  .content
+    &__bg_man
+      background-size: contain
+    &__item
+      font-size: 17.3px
+      line-height: 40px
+    &__watermark
+      font-size: 46px
+      line-height: 54px
+    &__info
+      padding-top: 180px
+
+  .map-ya__points
+    padding: 30px
+    width: 250px
+    
 //Medium: ≥768px
 +media-breakpoint-down(md)
   .section__title
@@ -109,6 +127,18 @@
       &_calc
         padding: 12px 38px 8px
 
+  .content
+    &__item
+      font-size: 18px
+    &__info
+      padding-top: 100px
+    &__list
+      padding-bottom: 40px
+
+  .map-ya__points
+    padding: 20px 20px 20px 25px
+    width: 231px
+
 //Small: ≥576px
 +media-breakpoint-down(sm)
   .apartment
@@ -163,6 +193,7 @@
         font-size: 16px
       &_desc
         padding-left: 20px
+
   .options
     &__item
       padding: 10px 0
@@ -192,6 +223,23 @@
         padding: 12px 21.1px 8px
       &_calc
         padding: 12px 18px 8px
+
+  .content
+    &__item
+      font-size: 16px
+      line-height: 1.5
+      padding-bottom: 20px
+    &__info
+      padding-top: 60px
+    &__list
+      padding-bottom: 10px
+    &__watermark
+      font-size: 40px
+      line-height: 50px
+
+  .map-ya__points
+    display: none
+
 //Extra small: >0
 +media-breakpoint-down(xs)
   .section__title
@@ -264,7 +312,47 @@
         text-align: center
       &_calc
         text-align: center
-        
+
+  .content
+    &__item
+      font-size: 14px
+      line-height: 1.72
+      padding-bottom: 22px
+    &__info
+      padding-top: 50px
+    &__list
+      padding-bottom: 20px
+
+  .footer
+    padding: 40px 0 60px
+    background: url(../img/_footer/edging_grass.png) repeat-x left 18% bottom
+    background-size: auto
+    &__logo
+      font-size: 34px
+      line-height: normal
+    &__contacts
+      font-size: 14px
+      align-items: flex-end
+    &__date
+      &_mobile
+        display: block
+        font-size: 14px
+      &_desctop
+        display: none
+  
+  .information__paragraph
+    &:nth-last-of-type(1)
+      display: block
+    &:nth-last-of-type(2)
+      margin-bottom: 0
+
+  .privacy-policy
+   display: block 
+
+  .contacts
+    &__phone
+      padding-bottom: 6px
+      
 /*==========  Mobile First  ==========*/
 
 //Extra small: <576px

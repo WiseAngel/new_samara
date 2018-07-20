@@ -52,8 +52,6 @@
 			</div>
 		</div>
 	</header>
-
-
 	<section class="hero">
 		<div class="container-fluid">
 			<div class="row">
@@ -76,9 +74,7 @@
 			</div>
 		</div>
 	</section>
-
-
-	<section class="callback">
+	<section class="callback" id="callback">
 		<div class="container">
 			<form action="" class="form">
 				<!-- Hidden Required Fields -->
@@ -88,29 +84,26 @@
 				<!-- END Hidden Required Fields -->
 				<div class="row">
 					<div class="col-xs-12 col-md form__col">
-						<input class="callback__input" type="text" name="name" placeholder="Имя" required>
+						<input class="callback__input" type="text" name="name" :placeholder="placeholderName" required>
 					</div>
 					<div class="col-xs-12 col-md form__col">
-						<input class="callback__input" type="tel" name="phone" placeholder="Телефон" required>
+						<input class="callback__input" type="tel" name="phone" :placeholder="placeholderPhone" required>
 					</div>
 					<div class="col-xs-12 col-md form__col">
-						<input class="btn callback__input callback__input_btn" type="button" value="Перезвоните мне">
+						<input class="btn callback__input callback__input_btn" type="button" :value="btnValue">
 					</div>
 				</div>
 			</form>
-			<p class="form__desc">Нажимая на кнопку «Перезвоните мне» я даю
+			<p class="form__desc">Нажимая на кнопку «{{ btnValue}}» я даю
 				<a href="#" class="form__desc_policy">согласие на обработку
 					<span class="form__desc_policy_underline">персональных данных</span>
 				</a>
 			</p>
 		</div>
 	</section>
-
-
 	<section class="advantages" id="advantages">
 		<div class="container">
 			<div class="row">
-
 				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsFirstLine">
 					<div class="advantages__item_img"></div>
 					<div class="advantages__item_desc">
@@ -118,8 +111,6 @@
 						<div class="advantages__item_small"> {{ item.second }}</div>
 					</div>
 				</div>
-
-
 				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsSecondLine">
 					<div class="advantages__item_img"></div>
 					<div class="advantages__item_desc">
@@ -127,8 +118,6 @@
 						<div class="advantages__item_strong"> {{ item.second }}</div>
 					</div>
 				</div>
-
-
 				<div class="col-12 col-md-6 advantages__item" v-for="(item, index) in itemsThirdLine">
 					<div class="advantages__item_img"></div>
 					<div class="advantages__item_desc">
@@ -136,28 +125,13 @@
 						<div class="advantages__item_small"> {{ item.second }}</div>
 					</div>
 				</div>
-
-
-				<!-- <div class="col-12 col-md-6 advantages__item" v-for="(item, index) in items" :key="index">
-					<div class="advantages__item_img advantages__item_img_house">
-					</div>
-					<div class="advantages__item_desc">
-						<div class="advantages__item_strong advantages__item_string"> {{ item.strong }}</div>
-						<div class="advantages__item_small advantages__item_string"> {{ item.small }}</div>
-					</div>
-				</div> -->
-
 			</div>
 		</div>
 	</section>
-
-
 	<section class="apartment" id="apartment">
-
 		<div class="section__title  apartment__title">
 			<h2 class="title">{{ title }}</h2>
 		</div>
-
 		<div class="apartment__options">
 			<ul class="options__list">
 				<li class="options__item" v-for="(option, index) in options" :key="index" @click="changeLayoutOptions(index)" :class="{ layout_active: option.isActive}">
@@ -165,7 +139,6 @@
 				</li>
 			</ul>
 		</div>
-
 		<div class="apartment__layouts">
 			<div class="container">
 				<div class="row">
@@ -186,8 +159,8 @@
 									</div>
 								</div>
 								<div class="layout__btn_desc">
-									<a href="#" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
-									<a href="#" class="btn layout__btn layout__btn_calc">Расчитать ипотеку</a>
+									<a :href="layout.btnMore" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
+									<a :href="layout.btnCalc" class="btn layout__btn layout__btn_calc">Расчитать ипотеку</a>
 								</div>
 							</div>
 						</div>
@@ -209,14 +182,32 @@
 			<h2 class="title">{{ titleLeft }}
 				<span class="dash_roboto">{{ dash }}</span> {{ titleRight }}</h2>
 		</div>
+		<div class="builder__content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 content__bg_man"></div>
+					<div class="col-lg-8">
+						<div class="content__info">
+							<ul class="content__list">
+								<li class="content__item" v-for="(string, index) in contentInfo" :key="index">{{ string }}</li>
+							</ul>
+							<div class="content__watermark">
+								<span class="content__watermark_first">{{ watermarkFirst}}</span>
+								<span class="content__watermark_second">{{ watermarkSecond}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
-	<section class="map" id="map_ya">
+	<section class="map" id="map">
 		<div class="section__title  map__title">
 			<h2 class="title">{{ title }} </h2>
 		</div>
-				<div class="map__wrapper">
-					<div id="map"></div>
-				</div>
+		<div class="map__wrapper">
+			<div id="map-ya"></div>
+		</div>
 	</section>
 	<section class="gallery" id="gallery">
 		<div class="section__title  gallery__title">
@@ -232,10 +223,63 @@
 			</div>
 		</div>
 	</section>
+	<section class="calculator" id="calculator">
+		<div class="section__title  calculator__title">
+			<h2 class="title">{{ title }} </h2>
+		</div>
+	</section>
+	<section class="callback callback_calc" id="callback_calc">
+		<div class="container">
+			<div class="callback__header">
+				<h3 class="callback__title">{{ headerTitle }}</h3>
+				<p class="callback__desc">{{ headerDesc }}</p>
+			</div>
+			<form action="" class="form">
+				<!-- Hidden Required Fields -->
+				<input type="hidden" name="project_name" value="New Samara">
+				<input type="hidden" name="admin_email" value="">
+				<input type="hidden" name="form_subject" value="New Samara">
+				<!-- END Hidden Required Fields -->
+				<div class="row">
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input callback__input_calc" type="text" name="name" :placeholder="placeholderName" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="callback__input callback__input_calc" type="tel" name="phone" :placeholder="placeholderPhone" required>
+					</div>
+					<div class="col-xs-12 col-md form__col">
+						<input class="btn callback__input callback__input_btn" type="button" :value="btnValue">
+					</div>
+				</div>
+			</form>
+			<p class="form__desc">Нажимая на кнопку «{{ btnValue}}» я даю
+				<a href="#" class="form__desc_policy">согласие на обработку
+					<span class="form__desc_policy_underline">персональных данных</span>
+				</a>
+			</p>
+		</div>
+	</section>
+	<footer class="footer" id="footer">
+		<div class="container">
+				<div class="footer__head">
+					<div class="head__logo head__logo_mobile">
+						<span class="footer__logo">{{ logo }}</span>
+						<span class="footer__date footer__date_mobile">{{ copyright }}</span>
+					</div>
+					<div class="footer__contacts">
+						<a :href="phone.link" class="contacts__phone contacts__link">{{ phone.text }}</a>
+						<a :href="docs.link" class="contacts__docs contacts__link">{{ docs.text }}</a>
+					</div>
+					<span class="footer__date footer__date_desctop">{{ copyright }}</span>
+				</div>
+				<div class="credit-information">
+					<p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
+					<a :href="privacyPolicy.link" class="privacy-policy">{{ privacyPolicy.text }}</a>
+				</div>
+		</div>
+	</footer>
 
-	<!--
-		===Scripts===
-	-->
+	<!--===Scripts===-->
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
 	<script src="js/scripts.min.js"></script>
 
