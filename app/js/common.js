@@ -2,7 +2,8 @@ $(function () {
 
   $("#lightgallery").lightGallery({
     thumbnail: true,
-    selector: '.gallery__item'
+    selector: '.gallery__item',
+    download: false
   });
 
   let hideImages = (() => {

@@ -28,11 +28,7 @@ var section__advantages = new Vue({
 			first: 'поддержка строительства',
 			second: 'правительством РФ'
 		}]
-
-	},
-
-	methods: {},
-	computed: {}
+	}
 });
 var section__apartment = new Vue({
 	el: '#apartment',
@@ -205,7 +201,45 @@ var section__builder = new Vue({
 var section__calculator = new Vue({
 	el: '#calculator',
 	data: {
-		title: 'Калькулятор ипотеки'
+		title: 'Калькулятор ипотеки',
+		calculatorValues: [{
+			initialValue: 1300000,
+			minValue: 1300000,
+			maxValue: 4000000,
+			step: 10000,
+			name: 'loan-rate',
+			label: 'Ставка по кредиту',
+			labelMinValue: '1 300 000',
+			labelMaxValue: '4 000 000',
+			value: 1300000
+		}, {
+			initialValue: 10,
+			minValue: 1,
+			maxValue: 30,
+			step: 1,
+			name: 'initial-fee',
+			label: 'Первоначальный взнос',
+			labelMinValue: '1',
+			labelMaxValue: '30'
+		}, {
+			initialValue: 50,
+			minValue: 0,
+			maxValue: 100,
+			step: 1,
+			name: 'credit-term',
+			label: 'Срок кредита',
+			labelMinValue: '0%',
+			labelMaxValue: '100%'
+		}, {
+			initialValue: 6,
+			minValue: 1,
+			maxValue: 16,
+			step: 1,
+			name: 'apartment-price',
+			label: 'Стоимость квартиры',
+			labelMinValue: '1',
+			labelMaxValue: '16'
+		}]
 	}
 });
 var section__callback = new Vue({
@@ -606,7 +640,7 @@ $(function () {
 				});
 				element.append('<h3 class="map-ya__points_title">Инфраструктура</h3>');
 				pointtyps.forEach(function (item, i, arr) {
-					element.append('<input type="checkbox" class="map-ya__checkbox" checked="checked" zdata-type="' + item.type + '" id="map-ya__checkbox_' + item.type + '"><label class="map-ya__checkbox_label" for="map-ya__checkbox_' + item.type + '">' + item.caption + '</label>');
+					element.append('<input type="checkbox" class="map-ya__checkbox" checked="checked" zdata-type="' + item.type + '" id="map-ya__checkbox_' + item.type + '">\n\t\t\t\t\t\t <label class="map-ya__checkbox_label" for="map-ya__checkbox_' + item.type + '">' + item.caption + '</label>');
 				});
 				element.prependTo('#map-ya');
 				$('.map-ya__checkbox').change(function () {
@@ -622,7 +656,8 @@ $(function () {
 
 	$("#lightgallery").lightGallery({
 		thumbnail: true,
-		selector: '.gallery__item'
+		selector: '.gallery__item',
+		download: false
 	});
 
 	var hideImages = function () {

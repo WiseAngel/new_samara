@@ -33,15 +33,6 @@ let section__advantages = new Vue({
         first: 'поддержка строительства',
         second: 'правительством РФ'
       }
-
     ]
-
-  },
-
-  methods: {
-
-  },
-  computed: {
-
   }
 });

@@ -1,11 +1,11 @@
-var section__map = new Vue({
+let section__map = new Vue({
 	el: '#map',
 	data: {
 		title: 'Создаем инфраструктуру',
 	}
 });
 $(function () {
-	var pointtyps = //список всех типов объектов
+	let pointtyps = //список всех типов объектов
 		[{
 				type: 1,
 				src: 'img/map__icons/point1.png',
@@ -34,7 +34,7 @@ $(function () {
 
 		];
 
-	var pointlist = //массив координат и типов объектов
+	let pointlist = //массив координат и типов объектов
 		[{
 				coordx: 53.317555,
 				coordy: 50.285491,
@@ -151,8 +151,8 @@ $(function () {
 			},
 		];
 
-	var pointicon = (type) => { //определение иконки в зависимости от типа
-		var result = '';
+	let pointicon = (type) => { //определение иконки в зависимости от типа
+		let result = '';
 		pointtyps.forEach(function (item, i, arr) {
 			if (type == item.type) {
 				result = item.src;
@@ -163,16 +163,16 @@ $(function () {
 
 	ymaps.ready(() => {
 		if ($('#map-ya').length > 0) {
-			var myMap = new ymaps.Map('map-ya', {
+			let myMap = new ymaps.Map('map-ya', {
 				center: [53.309498, 50.287493],
 				zoom: 14,
 				controls: []
 			});
 			myMap.behaviors.disable('scrollZoom');
 
-			var mappoints = []; //массив яндекс точек
+			let mappoints = []; //массив яндекс точек
 
-		var	generalpoint = new ymaps.Placemark(
+			let generalpoint = new ymaps.Placemark(
 				[53.309498, 50.287493], {
 					hintContent: '',
 					balloonContent: 'Жилой комплекс'
@@ -182,7 +182,7 @@ $(function () {
 					iconImageSize: [80, 76]
 				}
 			);
-		var	generalpointqw = new ymaps.Placemark(
+			let generalpointqw = new ymaps.Placemark(
 				[53.3150317, 50.2947756], {
 					hintContent: '',
 					balloonContent: 'Мега'
@@ -192,7 +192,7 @@ $(function () {
 					iconImageSize: [80, 76]
 				}
 			);
-		var	generalpointqe = new ymaps.Placemark(
+			let generalpointqe = new ymaps.Placemark(
 				[53.306051, 50.278459], {
 					hintContent: '',
 					balloonContent: 'Салют, лыжная база'
@@ -204,7 +204,7 @@ $(function () {
 			);
 
 			pointlist.forEach((item, i, arr) => {
-				var point = new ymaps.Placemark(
+				let point = new ymaps.Placemark(
 					[item.coordx, item.coordy], {
 						hintContent: '',
 						balloonContent: item.text
@@ -214,7 +214,7 @@ $(function () {
 						iconImageSize: [37, 43]
 					}
 				);
-				var telement = {
+				let telement = {
 					point: point,
 					type: item.type
 				};
@@ -229,18 +229,18 @@ $(function () {
 			myMap.geoObjects.add(generalpointqw);
 			myMap.geoObjects.add(generalpointqe);
 
-			var zmapcheck = () => { //событие на чекбоксы
+			let zmapcheck = () => { //событие на чекбоксы
 				myMap.geoObjects.each((geoObject) => {
 					myMap.geoObjects.remove(geoObject);
 				}); //удалить все с карты
-				var zchectypes = [];
+				let zchectypes = [];
 				//ищем чекнутые типы:
 				$('.map-ya__checkbox:checked').each(function () {
 					zchectypes.push($(this).attr('zdata-type'));
 				});
 
-				var z_in_array = (ztype) => {
-					var flag = false;
+				let z_in_array = (ztype) => {
+					let flag = false;
 					zchectypes.forEach((item, i, arr) => {
 						if (ztype == item) {
 							flag = true;
@@ -259,23 +259,16 @@ $(function () {
 				myMap.geoObjects.add(generalpointqe);
 			}
 
-			var generatecontrols = () => {
-				var element = $('<div/>', {
+			let generatecontrols = () => {
+				let element = $('<div/>', {
 					class: 'map-ya__points',
 					text: ''
 				});
 				element.append('<h3 class="map-ya__points_title">Инфраструктура</h3>');
 				pointtyps.forEach((item, i, arr) => {
 					element.append(
-						'<input type="checkbox" class="map-ya__checkbox" checked="checked" zdata-type="' +
-						item.type +
-						'" id="map-ya__checkbox_' +
-						item.type +
-						'"><label class="map-ya__checkbox_label" for="map-ya__checkbox_' +
-						item.type +
-						'">' +
-						item.caption +
-						'</label>'
+						`<input type="checkbox" class="map-ya__checkbox" checked="checked" zdata-type="${item.type}" id="map-ya__checkbox_${item.type}">
+						 <label class="map-ya__checkbox_label" for="map-ya__checkbox_${item.type}">${item.caption}</label>`
 					);
 				});
 				element.prependTo('#map-ya');

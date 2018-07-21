@@ -227,6 +227,31 @@
 		<div class="section__title  calculator__title">
 			<h2 class="title">{{ title }} </h2>
 		</div>
+		<div class="calculator__wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 calculator__value-change">
+						<template 
+								v-for="(inputValue, index) in calculatorValues" 
+								:key="index">
+								<input type="range"
+											 class="value-change__input" 
+											 :name="inputValue.name" 
+											 :id="inputValue.name" 
+											 :min="inputValue.minValue" 
+											 :max="inputValue.maxValue" 
+											 :step="inputValue.step" 
+											 :value="inputValue.initialValue" 
+											 v-model="inputValue.initialValue">
+
+								<input type="number"
+											 v-model="inputValue.initialValue">
+						</template>
+					</div>
+					<div class="col-md-6 calculator__result"></div>
+				</div>
+			</div>
+		</div>
 	</section>
 	<section class="callback callback_calc" id="callback_calc">
 		<div class="container">
@@ -261,21 +286,21 @@
 	</section>
 	<footer class="footer" id="footer">
 		<div class="container">
-				<div class="footer__head">
-					<div class="head__logo head__logo_mobile">
-						<span class="footer__logo">{{ logo }}</span>
-						<span class="footer__date footer__date_mobile">{{ copyright }}</span>
-					</div>
-					<div class="footer__contacts">
-						<a :href="phone.link" class="contacts__phone contacts__link">{{ phone.text }}</a>
-						<a :href="docs.link" class="contacts__docs contacts__link">{{ docs.text }}</a>
-					</div>
-					<span class="footer__date footer__date_desctop">{{ copyright }}</span>
+			<div class="footer__head">
+				<div class="head__logo head__logo_mobile">
+					<span class="footer__logo">{{ logo }}</span>
+					<span class="footer__date footer__date_mobile">{{ copyright }}</span>
 				</div>
-				<div class="credit-information">
-					<p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
-					<a :href="privacyPolicy.link" class="privacy-policy">{{ privacyPolicy.text }}</a>
+				<div class="footer__contacts">
+					<a :href="phone.link" class="contacts__phone contacts__link">{{ phone.text }}</a>
+					<a :href="docs.link" class="contacts__docs contacts__link">{{ docs.text }}</a>
 				</div>
+				<span class="footer__date footer__date_desctop">{{ copyright }}</span>
+			</div>
+			<div class="credit-information">
+				<p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
+				<a :href="privacyPolicy.link" class="privacy-policy">{{ privacyPolicy.text }}</a>
+			</div>
 		</div>
 	</footer>
 
