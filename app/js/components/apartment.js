@@ -29,7 +29,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '37,86',
@@ -37,7 +37,7 @@ let section__apartment = new Vue({
 				img: 'img/_apartment-layout/apartment-layout__1room_2.jpg',
 				alt: '1-комнатная квартира',
 				rooms: 1,
-				btnMore:'https://www.ya.ru/',
+				btnMore:'#calculator',
 				btnCalc:'https://www.google.com/',
 			},
 			{
@@ -47,7 +47,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '39,53',
@@ -56,7 +56,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '38,18',
@@ -65,7 +65,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '38,84',
@@ -74,7 +74,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '38,84',
@@ -83,7 +83,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '39,53',
@@ -92,7 +92,7 @@ let section__apartment = new Vue({
 				alt: '1-комнатная квартира',
 				rooms: 1,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 
 			{
@@ -102,7 +102,7 @@ let section__apartment = new Vue({
 				alt: '2-комнатная квартира',
 				rooms: 2,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 			{
 				area: '63,39',
@@ -111,7 +111,7 @@ let section__apartment = new Vue({
 				alt: '2-комнатная квартира',
 				rooms: 2,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 
 			{
@@ -121,7 +121,7 @@ let section__apartment = new Vue({
 				alt: '3-комнатная квартира',
 				rooms: 3,
 				btnMore:'https://www.google.com/',
-				btnCalc:'https://www.ya.ru/',
+				btnCalc:'#calculator',
 			},
 		],
 	},
@@ -148,6 +148,9 @@ let section__apartment = new Vue({
 				return item.rooms === index + 1;
 			};
 		},
+		transferCostToCalculator(val){
+			return section__calculator.calculatorValues[0].initialValue = val.split(' ').join('');
+		}
 	},
 
 	computed: {

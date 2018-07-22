@@ -58,14 +58,14 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '37,86',
 			value: '1 455 000',
 			img: 'img/_apartment-layout/apartment-layout__1room_2.jpg',
 			alt: '1-комнатная квартира',
 			rooms: 1,
-			btnMore: 'https://www.ya.ru/',
+			btnMore: '#calculator',
 			btnCalc: 'https://www.google.com/'
 		}, {
 			area: '37,86',
@@ -74,7 +74,7 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '39,53',
 			value: '1 522 000',
@@ -82,7 +82,7 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '38,18',
 			value: '1 567 000',
@@ -90,7 +90,7 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '38,84',
 			value: '1 679 000',
@@ -98,7 +98,7 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '38,84',
 			value: '1 500 000',
@@ -106,7 +106,7 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '39,53',
 			value: '1 522 000',
@@ -114,7 +114,7 @@ var section__apartment = new Vue({
 			alt: '1-комнатная квартира',
 			rooms: 1,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '59,46',
 			value: '2 378 000',
@@ -122,7 +122,7 @@ var section__apartment = new Vue({
 			alt: '2-комнатная квартира',
 			rooms: 2,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '63,39',
 			value: '2 401 000',
@@ -130,7 +130,7 @@ var section__apartment = new Vue({
 			alt: '2-комнатная квартира',
 			rooms: 2,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}, {
 			area: '86,56',
 			value: '3 401 000',
@@ -138,7 +138,7 @@ var section__apartment = new Vue({
 			alt: '3-комнатная квартира',
 			rooms: 3,
 			btnMore: 'https://www.google.com/',
-			btnCalc: 'https://www.ya.ru/'
+			btnCalc: '#calculator'
 		}]
 	},
 
@@ -162,6 +162,9 @@ var section__apartment = new Vue({
 			function filterByRooms(item) {
 				return item.rooms === index + 1;
 			};
+		},
+		transferCostToCalculator: function transferCostToCalculator(val) {
+			return section__calculator.calculatorValues[0].initialValue = val.split(' ').join('');
 		}
 	},
 
@@ -201,45 +204,60 @@ var section__builder = new Vue({
 var section__calculator = new Vue({
 	el: '#calculator',
 	data: {
+		foo: '',
+		fee: '',
+		faa: '',
 		title: 'Калькулятор ипотеки',
 		calculatorValues: [{
 			initialValue: 1300000,
 			minValue: 1300000,
 			maxValue: 4000000,
-			step: 10000,
-			name: 'loan-rate',
-			label: 'Ставка по кредиту',
+			step: 1000,
+			name: 'apartment-price',
+			label: 'Стоимость квартиры',
 			labelMinValue: '1 300 000',
-			labelMaxValue: '4 000 000',
-			value: 1300000
+			labelMaxValue: '4 000 000'
 		}, {
 			initialValue: 10,
 			minValue: 1,
 			maxValue: 30,
 			step: 1,
-			name: 'initial-fee',
-			label: 'Первоначальный взнос',
+			name: 'credit-term',
+			label: 'Срок кредита',
 			labelMinValue: '1',
 			labelMaxValue: '30'
 		}, {
-			initialValue: 50,
-			minValue: 0,
-			maxValue: 100,
-			step: 1,
-			name: 'credit-term',
-			label: 'Срок кредита',
-			labelMinValue: '0%',
+			initialValue: 260000,
+			minValue: '',
+			maxValue: '',
+			step: 1000,
+			name: 'initial-fee',
+			label: 'Первоначальный взнос',
+			labelMinValue: '20%',
 			labelMaxValue: '100%'
 		}, {
 			initialValue: 6,
 			minValue: 1,
 			maxValue: 16,
 			step: 1,
-			name: 'apartment-price',
-			label: 'Стоимость квартиры',
+			name: 'loan-rate',
+			label: 'Ставка по кредиту',
 			labelMinValue: '1',
 			labelMaxValue: '16'
 		}]
+	},
+	methods: {},
+	/*   created() {
+     this.fee = this.calculatorValues[0].initialValue * 0.2;
+     this.foo = this.calculatorValues[0].initialValue;
+     this.faa = this.calculatorValues[2].minValue;
+    }, */
+	computed: {
+		initialFee: function initialFee() {
+			this.calculatorValues[2].minValue = this.calculatorValues[0].initialValue * 0.2;
+			this.calculatorValues[2].maxValue = this.calculatorValues[0].initialValue;
+			this.calculatorValues[2].initialValue = this.calculatorValues[2].minValue;
+		}
 	}
 });
 var section__callback = new Vue({
