@@ -231,40 +231,45 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5 offset-md-1">
-						<div class="calculator__value-changes"	v-for="(inputValue, index) in calculatorValues">
+						<div class="calculator__value-changes" v-for="(inputValue, index) in calculatorValues">
 							<p class="value-change__name">{{ inputValue.label }}</p>
 							<div class="value-change__wrapper">
-									<div class="input__wrapper">
-											<input	type="range"
-														class="value-change__input" 
-														:name="inputValue.name" 
-														:id="inputValue.name" 
-														:min="inputValue.minValue" 
-														:max="inputValue.maxValue" 
-														:step="inputValue.step" 
-														v-model="inputValue.initialValue">
-											<div class="input__desc">
-												<span class="input__desc_min">
-													{{ inputValue.labelMinValue }}
-												</span>
-												<span class="input__desc_max">
-													{{ inputValue.labelMaxValue }}
-												</span>
-											</div>
+								<div class="input__wrapper">
+									<input type="range" class="value-change__input" :name="inputValue.name" :id="inputValue.name" :min="inputValue.minValue"
+									  :max="inputValue.maxValue" :step="inputValue.step" v-model="inputValue.initialValue">
+									<div class="input__desc">
+										<span class="input__desc_min">
+											{{ inputValue.labelMinValue }}
+										</span>
+										<span class="input__desc_max">
+											{{ inputValue.labelMaxValue }}
+										</span>
 									</div>
-									<div class="input__wrapper_text">
-											<input	type="text"
-															class="value-change__input_text"
-															v-model="inputValue.initialValue"
-															>{{ initialFee }}
-									</div>
+								</div>
+								<div class="input__wrapper_text">
+									<input type="text" class="value-change__input_text" v-model="inputValue.initialValue">
+									<span class="input__unit">{{ inputValue.unit }}</span>
+								</div>
 							</div>
 						</div>
+						<p class="calculator__credit-amount">
+							{{ creditAmountInCalculator.label }}
+							<span class="credit-amount__total">
+								{{ creditAmount }}
+							</span>
+							<span class="credit-amount__currency">
+								{{ creditAmountInCalculator.currency }}
+							</span>
+						</p>
 					</div>
-					<div class="col-md-6 calculator__result"></div>
+					<div class="col-md-5 offset-md-1 calculator__result">
+						<p>РЕЗУЛЬТАТ РАСЧЕТА ПЛАТЕЖЕЙ ПО ИПОТЕЧНОМУ КРЕДИТУ</p>
+						
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="d-none">{{ initialFee }} {{ declinationOfYear }}</div>
 	</section>
 	<section class="callback callback_calc" id="callback_calc">
 		<div class="container">

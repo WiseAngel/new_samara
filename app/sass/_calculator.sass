@@ -1,6 +1,9 @@
 .calculator
   &__value-changes
+    position: relative
     margin-bottom: 20px
+  &__credit-amount
+    font-size: 18px
 
 .value-change
   &__wrapper
@@ -27,6 +30,17 @@
   &__desc
     display: flex
     justify-content: space-between
-    color: #838383
+    color: $inputDesc
     font-size: 12px
     font-weight: 500
+  &__unit
+    position: absolute
+    right: 16px
+    top: 50%
+    line-height: .93
+    color: $inputDesc
+
+.credit-amount
+  &__currency
+    font-family: PTSR
+
