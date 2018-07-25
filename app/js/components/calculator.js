@@ -106,6 +106,10 @@ let section__calculator = new Vue({
 
       this.perMountlyBlock.initialValue = monthlyPayment;
       return monthlyPayment;
+    },
+
+    overpaymentAmount(){
+      this.creditAmount
     }
 
   }
