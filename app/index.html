@@ -230,8 +230,8 @@
 		<div class="calculator__wrapper">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-5 offset-md-1">
-						<div class="calculator__value-changes" v-for="(inputValue, index) in calculatorValues">
+					<div class="col-xl-5 offset-xl-1 col-lg-6 offset-lg-0 col-md-10 offset-md-1">
+						<div class="calculator__value-changes" v-for="(inputValue, index) of calculatorValues">
 							<p class="value-change__label">{{ inputValue.label }}</p>
 							<div class="value-change__wrapper">
 								<div class="input__wrapper">
@@ -247,7 +247,7 @@
 									</div>
 								</div>
 								<div class="input__wrapper_text">
-									<input type="text" class="value-change__input_text" v-model="inputValue.initialValue">
+									<input type="text" class="value-change__input_text" v-model.lazy.trim="inputValue.initialValue">
 									<span class="input__unit">{{ inputValue.unit }}</span>
 								</div>
 							</div>
@@ -262,9 +262,9 @@
 							</span>
 						</p>
 					</div>
-					<div class="col-md-5 offset-md-1 calculator__result">
+					<div class="col-xl-5 offset-xl-1 col-lg-5 offset-lg-1 col-md-10 offset-md-1 calculator__result">
 						<p class="result__title">Результат расчета платежей по ипотечному кредиту</p>
-						<div class="result__string" :class=`result__${item.name}` v-for="(item, index) in foo" :key="index">
+						<div class="result__string" :class=`result__${item.name}` v-for="(item, index) of foo" :key="index">
 							<span class="result__label">{{ item.label }}:</span>
 							<div class="result__values">
 								<span class="result__value">
@@ -275,13 +275,23 @@
 								</span>
 							</div>
 						</div>
-						<!-- <div class="qwert">Ежемесячный платеж <span class="qwerty">{{ perMountly }}</span></div> -->
-						<div class="qwert">Сумма переплаты </div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="d-none">{{ initialFee }} {{ declinationOfYear }}</div>
+		<div class="calculator__policy">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 calculator__btn">
+						<a href="#callback_calc" class="btn calculator__btn_policy">Получить точный расчет</a>
+					</div>
+					<div class="col policy__text">
+						{{ policy }}
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="d-none">{{ initialFee }} {{ declinationOfYear }} </div>
 	</section>
 	<section class="callback callback_calc" id="callback_calc">
 		<div class="container">

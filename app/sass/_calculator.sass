@@ -1,9 +1,25 @@
 .calculator
+  padding-bottom: 65px
+  &__wrapper
+    margin-bottom: 55px
   &__value-changes
     position: relative
     margin-bottom: 20px
   &__credit-amount
+    margin-bottom: 0
     font-size: 18px
+  &__result
+    padding: 0 53px 0 32px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    background: $accent
+  &__btn
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    &_policy
+      padding: 12px 18px 8px
 
 .value-change
   &__wrapper
@@ -47,7 +63,31 @@
 .result
   &__title
     position: relative
+    margin-bottom: 30px
+    padding-bottom: 14px
     font-size: 20px
     text-transform: uppercase
     &:before
-      
+      position: absolute
+      content: ''
+      bottom: 0
+      left: 0
+      width: 73px
+      height: 2px
+      background: #000
+
+  &__string
+    display: flex
+    justify-content: space-between
+    margin-bottom: 10px
+    font-size: 18px
+  &__label
+  &__values
+    width: 110px
+  &__value
+    padding-right: 5px
+
+.policy
+  &__text
+    padding-left: 35px
+    font-size: 12px

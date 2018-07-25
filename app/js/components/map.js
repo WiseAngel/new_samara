@@ -5,7 +5,7 @@ let section__map = new Vue({
 	}
 });
 $(function () {
-	let pointtyps = //список всех типов объектов
+	let pointTyps = //список всех типов объектов
 		[{
 				type: 1,
 				src: 'img/map__icons/point1.png',
@@ -34,7 +34,7 @@ $(function () {
 
 		];
 
-	let pointlist = //массив координат и типов объектов
+	let pointList = //массив координат и типов объектов
 		[{
 				coordx: 53.317555,
 				coordy: 50.285491,
@@ -153,7 +153,7 @@ $(function () {
 
 	let pointicon = (type) => { //определение иконки в зависимости от типа
 		let result = '';
-		pointtyps.forEach(function (item, i, arr) {
+		pointTyps.forEach(function (item, i, arr) {
 			if (type == item.type) {
 				result = item.src;
 			}
@@ -170,9 +170,9 @@ $(function () {
 			});
 			myMap.behaviors.disable('scrollZoom');
 
-			let mappoints = []; //массив яндекс точек
+			let mapPoints = []; //массив яндекс точек
 
-			let generalpoint = new ymaps.Placemark(
+			let pointGeneral = new ymaps.Placemark(
 				[53.309498, 50.287493], {
 					hintContent: '',
 					balloonContent: 'Жилой комплекс'
@@ -182,7 +182,7 @@ $(function () {
 					iconImageSize: [80, 76]
 				}
 			);
-			let generalpointqw = new ymaps.Placemark(
+			let pointMega = new ymaps.Placemark(
 				[53.3150317, 50.2947756], {
 					hintContent: '',
 					balloonContent: 'Мега'
@@ -192,7 +192,7 @@ $(function () {
 					iconImageSize: [80, 76]
 				}
 			);
-			let generalpointqe = new ymaps.Placemark(
+			let pointFirework = new ymaps.Placemark(
 				[53.306051, 50.278459], {
 					hintContent: '',
 					balloonContent: 'Салют, лыжная база'
@@ -203,7 +203,7 @@ $(function () {
 				}
 			);
 
-			pointlist.forEach((item, i, arr) => {
+			pointList.forEach((item, i, arr) => {
 				let point = new ymaps.Placemark(
 					[item.coordx, item.coordy], {
 						hintContent: '',
@@ -218,54 +218,54 @@ $(function () {
 					point: point,
 					type: item.type
 				};
-				mappoints.push(telement);
+				mapPoints.push(telement);
 			});
 
 			//ставим точки на карту
-			mappoints.forEach((item, i, arr) => {
+			mapPoints.forEach((item, i, arr) => {
 				myMap.geoObjects.add(item.point);
 			});
-			myMap.geoObjects.add(generalpoint);
-			myMap.geoObjects.add(generalpointqw);
-			myMap.geoObjects.add(generalpointqe);
+			myMap.geoObjects.add(pointGeneral);
+			myMap.geoObjects.add(pointMega);
+			myMap.geoObjects.add(pointFirework);
 
-			let zmapcheck = () => { //событие на чекбоксы
+			let checkPoints = () => { //событие на чекбоксы
 				myMap.geoObjects.each((geoObject) => {
 					myMap.geoObjects.remove(geoObject);
 				}); //удалить все с карты
-				let zchectypes = [];
+				let checkedTypes = [];
 				//ищем чекнутые типы:
 				$('.map-ya__checkbox:checked').each(function () {
-					zchectypes.push($(this).attr('zdata-type'));
+					checkedTypes.push($(this).attr('zdata-type'));
 				});
 
-				let z_in_array = (ztype) => {
+				let checkInArray = (type) => {
 					let flag = false;
-					zchectypes.forEach((item, i, arr) => {
-						if (ztype == item) {
+					checkedTypes.forEach((item, i, arr) => {
+						if (type == item) {
 							flag = true;
 						}
 					});
 					return flag;
 				}
 
-				mappoints.forEach((item, i, arr) => {
-					if (z_in_array(item.type)) {
+				mapPoints.forEach((item, i, arr) => {
+					if (checkInArray(item.type)) {
 						myMap.geoObjects.add(item.point);
 					}
 				});
-				myMap.geoObjects.add(generalpoint);
-				myMap.geoObjects.add(generalpointqw);
-				myMap.geoObjects.add(generalpointqe);
+				myMap.geoObjects.add(pointGeneral);
+				myMap.geoObjects.add(pointMega);
+				myMap.geoObjects.add(pointFirework);
 			}
 
-			let generatecontrols = () => {
+			let generateControls = () => {
 				let element = $('<div/>', {
 					class: 'map-ya__points',
 					text: ''
 				});
 				element.append('<h3 class="map-ya__points_title">Инфраструктура</h3>');
-				pointtyps.forEach((item, i, arr) => {
+				pointTyps.forEach((item, i, arr) => {
 					element.append(
 						`<input type="checkbox" class="map-ya__checkbox" checked="checked" zdata-type="${item.type}" id="map-ya__checkbox_${item.type}">
 						 <label class="map-ya__checkbox_label" for="map-ya__checkbox_${item.type}">${item.caption}</label>`
@@ -273,11 +273,11 @@ $(function () {
 				});
 				element.prependTo('#map-ya');
 				$('.map-ya__checkbox').change(() => {
-					zmapcheck();
+					checkPoints();
 				});
 			}
 
-			generatecontrols();
+			generateControls();
 		}
 	});
 

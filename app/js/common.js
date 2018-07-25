@@ -1,7 +1,7 @@
 $(function () {
   /*
-  ** section__gallery
-  */
+   ** section__gallery
+   */
   $("#lightgallery").lightGallery({
     thumbnail: true,
     selector: '.gallery__item',
@@ -21,25 +21,30 @@ $(function () {
     });
   })();
   /*
-  ** /section__gallery
-  */
+   ** /section__gallery
+   */
 
   /*
-  ** section__calculator
-  */
+   ** section__calculator
+   */
   $('.value-change__input_text').on('change', () => {
     let arrayValues = section__calculator.calculatorValues;
+ 
+    for (const key in arrayValues) {
+      let elemInitVal = arrayValues[key].initialValue;
+      let elemMaxVal = arrayValues[key].maxValue;
+      let elemMinVal = arrayValues[key].minValue;
 
-    for (let i = 0; i < arrayValues.length; i++) {
-      let elemInitVal = arrayValues[i].initialValue;
 
-      if (elemInitVal.toString().indexOf(' ') !== -1) {
-        arrayValues[i].initialValue = elemInitVal.split(' ').join('');
+      if (String(elemInitVal).length > String(elemMaxVal).length) {
+        arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
+        arrayValues[key].initialValue = elemMaxVal;
       }
-      if (elemInitVal > arrayValues[i].maxValue) {
-        arrayValues[i].initialValue = arrayValues[i].maxValue;
-      } else if (elemInitVal < arrayValues[i].minValue) {
-        arrayValues[i].initialValue = arrayValues[i].minValue;
+
+      if (elemInitVal > elemMaxVal) {
+        arrayValues[key].initialValue = elemMaxVal;
+      } else if (elemInitVal < elemMinVal) {
+        arrayValues[key].initialValue = elemMinVal;
       }
     }
   });
@@ -60,9 +65,17 @@ $(function () {
     });
   })();
 
+  let transformOverpaymentAmount = (() => {
+    $('.result__overpayment-amount .result__value').text(formatStr(section__calculator.overpaymentAmount));
+
+    $('.value-change__input, .value-change__input_text').on('change', () => {
+      $('.result__overpayment-amount .result__value').text(formatStr(section__calculator.overpaymentAmount));
+    });
+  })();
+
   /*
-  ** /section__calculator
-  */
+   ** /section__calculator
+   */
 
   function formatStr(str) {
     return String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')

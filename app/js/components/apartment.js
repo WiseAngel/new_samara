@@ -149,7 +149,7 @@ let section__apartment = new Vue({
 			};
 		},
 		transferCostToCalculator(val){
-			return section__calculator.calculatorValues[0].initialValue = val.split(' ').join('');
+			return section__calculator.calculatorValues['apartment-price'].initialValue = val.split(' ').join('');
 		}
 	},
 
