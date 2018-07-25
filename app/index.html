@@ -232,7 +232,7 @@
 				<div class="row">
 					<div class="col-md-5 offset-md-1">
 						<div class="calculator__value-changes" v-for="(inputValue, index) in calculatorValues">
-							<p class="value-change__name">{{ inputValue.label }}</p>
+							<p class="value-change__label">{{ inputValue.label }}</p>
 							<div class="value-change__wrapper">
 								<div class="input__wrapper">
 									<input type="range" class="value-change__input" :name="inputValue.name" :id="inputValue.name" :min="inputValue.minValue"
@@ -253,18 +253,30 @@
 							</div>
 						</div>
 						<p class="calculator__credit-amount">
-							{{ creditAmountInCalculator.label }}
+							{{ creditAmountBlock.label }}:
 							<span class="credit-amount__total">
-								{{ creditAmount }}
+								{{ creditAmountBlock.initialValue }}
 							</span>
 							<span class="credit-amount__currency">
-								{{ creditAmountInCalculator.currency }}
+								{{ creditAmountBlock.unit }}
 							</span>
 						</p>
 					</div>
 					<div class="col-md-5 offset-md-1 calculator__result">
-						<p>РЕЗУЛЬТАТ РАСЧЕТА ПЛАТЕЖЕЙ ПО ИПОТЕЧНОМУ КРЕДИТУ</p>
-						
+						<p class="result__title">Результат расчета платежей по ипотечному кредиту</p>
+						<div class="result__string" :class=`result__${item.name}` v-for="(item, index) in foo" :key="index">
+							<span class="result__label">{{ item.label }}:</span>
+							<div class="result__values">
+								<span class="result__value">
+									{{ item.initialValue }}
+								</span>
+								<span class="result__unit">
+									{{ item.unit }}
+								</span>
+							</div>
+						</div>
+						<!-- <div class="qwert">Ежемесячный платеж <span class="qwerty">{{ perMountly }}</span></div> -->
+						<div class="qwert">Сумма переплаты </div>
 					</div>
 				</div>
 			</div>

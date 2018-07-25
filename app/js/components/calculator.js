@@ -39,7 +39,7 @@ let section__calculator = new Vue({
         initialValue: 10,
         minValue: 6,
         maxValue: 16,
-        step: 1,
+        step: .1,
         name: 'loan-rate',
         label: 'Ставка по кредиту',
         labelMinValue: '6',
@@ -47,15 +47,18 @@ let section__calculator = new Vue({
         unit: '%'
       }
     ],
-    creditAmountInCalculator: {
-      label: 'Сумма кредита:',
-      currency: '₽'
+    creditAmountBlock: {
+      initialValue: '',
+      label: 'Сумма кредита',
+      unit: '₽',
+      name: 'credit-amount'
     },
-    resultValules: [{
-      title: '',
-      value: '',
-      unit: ''
-    }]
+    perMountlyBlock: {
+      initialValue: '',
+      label: 'Ежемесячный платеж',
+      unit: '₽',
+      name: 'per-mountly'
+    }
   },
   methods: {
 
@@ -69,7 +72,7 @@ let section__calculator = new Vue({
       this.calculatorValues[2].initialValue = this.calculatorValues[2].minValue;
     },
     creditAmount() {
-      return this.calculatorValues[0].initialValue - this.calculatorValues[2].initialValue;
+      return this.creditAmountBlock.initialValue = this.calculatorValues[0].initialValue - this.calculatorValues[2].initialValue;
     },
     declinationOfYear() {
       let value = parseInt(this.calculatorValues[1].initialValue);
@@ -83,13 +86,27 @@ let section__calculator = new Vue({
       }
       this.calculatorValues[1].unit = spelling;
     },
+
     foo() {
       let arr = [];
       this.calculatorValues.forEach((element, i) => {
         i % 2 == 1 ? arr.push(element) : false;
       });
-      arr.unshift(this.creditAmount);
+      arr.unshift(this.creditAmountBlock);
+      arr.push(this.perMountlyBlock);
       return arr;
+    },
+
+    perMountly() {
+      let creditAmount = this.creditAmount;
+      let creditTerm = this.calculatorValues[1].initialValue * 12;
+      let loanRatePerMo = this.calculatorValues[3].initialValue / 12 / 100;
+      let qt = Math.pow(1+loanRatePerMo, creditTerm)
+      let monthlyPayment = Math.round(((creditAmount*qt)*loanRatePerMo)/(qt-1));
+
+      this.perMountlyBlock.initialValue = monthlyPayment;
+      return monthlyPayment;
     }
+
   }
 });
