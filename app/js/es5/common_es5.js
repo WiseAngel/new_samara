@@ -280,9 +280,14 @@ var section__calculator = new Vue({
   computed: {
     initialFee: function initialFee() {
       var price = this.calculatorValues['apartment-price'].initialValue;
+      // let feeInit = this.calculatorValues['initial-fee'].initialValue;
+      // let feeMax = this.calculatorValues['initial-fee'].maxValue;
+      // let feeMin = this.calculatorValues['initial-fee'].minValue;
 
       this.calculatorValues['initial-fee'].minValue = price * 0.2;
       this.calculatorValues['initial-fee'].maxValue = price - 500000;
+      // this.calculatorValues['initial-fee'].initialValue = feeInit > feeMax ? feeMax : feeInit;
+      // this.calculatorValues['initial-fee'].initialValue = feeInit < feeMin ? feeMin : feeInit;
       this.calculatorValues['initial-fee'].initialValue = this.calculatorValues['initial-fee'].minValue;
     },
     creditAmount: function creditAmount() {
@@ -310,7 +315,7 @@ var section__calculator = new Vue({
       }
       this.calculatorValues['credit-term'].unit = spelling;
     },
-    foo: function foo() {
+    calculatorResultArray: function calculatorResultArray() {
       var arr = [];
 
       for (var key in this.calculatorValues) {
@@ -500,6 +505,26 @@ var section__gallery = new Vue({
     }]
   },
   computed: {}
+});
+
+var section__hero = new Vue({
+  el: '#hero',
+  data: {
+    slides: ['img/_hero/hero__slide_1.jpg', 'img/_hero/hero__slide_2.jpg', 'img/_hero/hero__slide_3.jpg', 'img/_hero/hero__slide_4.jpg']
+  }
+});
+
+$('.hero__slider').slick({
+  dots: false,
+  arrow: false,
+  autoplay: false,
+  infinite: true,
+  autoplaySpeed: 8000,
+  speed: 500,
+  fade: true,
+  cssEase: 'linear',
+  prevArrow: '<button type="button" class="slick-prev slider__nav slider__nav_prev"><img src="../img/_hero/slider__arrow_left.png" alt="Prev Slide" class="slider__nav_img"></button>',
+  nextArrow: '<button type="button" class="slick-next slider__nav slider__nav_next"><img src="../img/_hero/slider__arrow_right.png" alt="Next Slide" class="slider__nav_img"></button>'
 });
 
 var section__map = new Vue({
@@ -831,5 +856,14 @@ $(function () {
 
   function formatStr(str) {
     return String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
-  }
+  };
+
+  $(".slowly").on("click", function (event) {
+    event.preventDefault();
+    var id = $(this).attr('href'),
+        top = $(id).offset().top;
+    $('body,html').animate({
+      scrollTop: top
+    }, 600);
+  });
 });

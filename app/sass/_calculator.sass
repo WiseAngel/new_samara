@@ -1,7 +1,7 @@
 .calculator
   padding-bottom: 65px
   &__wrapper
-    margin-bottom: 55px
+    margin-bottom: 50px
   &__value-changes
     position: relative
     margin-bottom: 20px
@@ -27,12 +27,62 @@
     width: 100%
     justify-content: space-between
   &__label
-    margin: 0
+    margin-bottom: 7px
     font-size: 18px
     line-height: 26px
   &__input
-    margin: 12px 0 2px
+    margin: 12px 0 10px
     width: 100%
+    appearance: none
+    border-radius: 2px
+    height: 3px
+    border: none
+    background-color: $border_main
+    outline: none
+    &::-moz-range-track
+      width: 100%
+      appearance: none
+      border-radius: 2px
+      height: 3px
+      border: none
+      background-color: $border_main
+      outline: none
+    &::-ms-track
+      width: 100%
+      appearance: none
+      border-radius: 2px
+      height: 3px
+      border: none
+      background-color: $border_main
+      outline: none
+    &::-webkit-slider-thumb 
+      -webkit-appearance: none
+      background-color: rgba(254, 242, 0, 0.9)
+      border: none
+      width: 20px
+      height: 20px
+      border-radius: 10px
+      cursor: pointer
+    &::-moz-range-thumb
+      -moz-appearance: none
+      background-color: rgba(254, 242, 0, 0.9)
+      border: none
+      width: 20px
+      height: 20px
+      border-radius: 10px
+      cursor: pointer
+    &::-ms-thumb
+      -ms-appearance: none
+      background-color: rgba(254, 242, 0, 0.9)
+      border: none
+      width: 20px
+      height: 20px
+      border-radius: 10px
+      cursor: pointer 
+    &::-ms-fill-upper
+      background: transparent
+    &::-ms-fill-lower
+      background: transparent
     &_text
       width: 140px
       padding: 8px 17px
@@ -43,6 +93,9 @@
     display: flex
     flex-direction: column
     width: 100%
+    &_text
+      position: relative
+      width: max-content
   &__desc
     display: flex
     justify-content: space-between
@@ -52,8 +105,8 @@
   &__unit
     position: absolute
     right: 16px
-    top: 50%
-    line-height: .93
+    top: 9px
+    // line-height: .93
     color: $inputDesc
 
 .credit-amount
@@ -79,7 +132,7 @@
   &__string
     display: flex
     justify-content: space-between
-    margin-bottom: 10px
+    margin-bottom: 14px
     font-size: 18px
   &__label
   &__values
@@ -89,5 +142,6 @@
 
 .policy
   &__text
-    padding-left: 35px
+    padding-left: 20px
+    margin-bottom: 0
     font-size: 12px

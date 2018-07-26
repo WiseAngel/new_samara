@@ -79,9 +79,14 @@ let section__calculator = new Vue({
   computed: {
     initialFee() {
       let price = this.calculatorValues['apartment-price'].initialValue;
+      // let feeInit = this.calculatorValues['initial-fee'].initialValue;
+      // let feeMax = this.calculatorValues['initial-fee'].maxValue;
+      // let feeMin = this.calculatorValues['initial-fee'].minValue;
 
       this.calculatorValues['initial-fee'].minValue = price * 0.2;
       this.calculatorValues['initial-fee'].maxValue = price - 500000;
+      // this.calculatorValues['initial-fee'].initialValue = feeInit > feeMax ? feeMax : feeInit;
+      // this.calculatorValues['initial-fee'].initialValue = feeInit < feeMin ? feeMin : feeInit;
       this.calculatorValues['initial-fee'].initialValue = this.calculatorValues['initial-fee'].minValue;
     },
 
@@ -112,7 +117,7 @@ let section__calculator = new Vue({
       this.calculatorValues['credit-term'].unit = spelling;
     },
 
-    foo() {
+    calculatorResultArray() {
       let arr = [];
 
       for (const key in this.calculatorValues) {

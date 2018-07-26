@@ -56,6 +56,7 @@ gulp.task('js', ['babeling'], function () {
       'app/libs/Vue/vue.js',
       'app/libs/lightGallery-master/dist/js/lightgallery.min.js',
       'app/libs/lightGallery-master/modules/lg-thumbnail.min.js',
+      'app/libs/slick/slick.min.js',
       'app/js/es5/common_es5.js', // Always at the end
     ])
     .pipe(concat('scripts.min.js'))

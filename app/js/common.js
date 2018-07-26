@@ -79,5 +79,15 @@ $(function () {
 
   function formatStr(str) {
     return String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
-  }
+  };
+
+  $(".slowly").on("click", function (event) {
+    event.preventDefault();
+    var id = $(this).attr('href'),
+      top = $(id).offset().top;
+    $('body,html').animate({
+      scrollTop: top
+    }, 600);
+  });
+  
 });

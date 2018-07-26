@@ -71,9 +71,18 @@
   .map-ya__points
     padding: 30px
     width: 250px
-    
+  .input
+    &__wrapper  
+      padding-right: 50px
+
 //Medium: ≥768px
 +media-breakpoint-down(md)
+  .hero
+    &__slider
+      display: none
+    &__mobile
+      display: block
+
   .section__title
     padding: 80px 0
   .title
@@ -108,6 +117,7 @@
       padding: 35px 0
     &__layouts
       padding: 30px 0
+
   .options
     &__list
       flex-direction: column
@@ -116,6 +126,7 @@
       padding: 15px 0
       &:before
         display: none
+
   .layout
     &_active
       font-size: 24px
@@ -134,13 +145,47 @@
       padding-top: 100px
     &__list
       padding-bottom: 40px
-
+  .form__col
+    padding: 0 10px
   .map-ya__points
     padding: 20px 20px 20px 25px
     width: 231px
 
+  .calculator
+    padding-bottom: 40px
+    &__credit-amount
+      margin-top: 10px
+      margin-bottom: 30px
+    &__result
+      padding: 50px 15px 30px 15px
+    &__btn_policy 
+      margin-bottom: 50px
+      width: 100%
+      text-align: center
+
+  .value-change
+    &__wrapper
+      flex-direction: column
+
+  .input
+    &__wrapper
+      padding-right: 0
+      margin-bottom: 10px
+
+  .result
+    &__title
+      font-size: 18px
+    &__string
+      font-size: 16px
+
+  .policy__text
+    padding-left: 0
+
 //Small: ≥576px
 +media-breakpoint-down(sm)
+  .mobile__desc
+    font-size: 30px
+    width: 130px
   .apartment
     &__layouts
       padding: 15px 0
@@ -193,11 +238,14 @@
         font-size: 16px
       &_desc
         padding-left: 20px
+  .map__wrapper
+    height: 450px
 
   .options
     &__item
       padding: 10px 0
       font-size: 15px
+
   .layout
     &_active
       font-size: 17px
@@ -239,7 +287,11 @@
 
   .map-ya__points
     display: none
-
+  
+  .form__col
+    padding: 0 15px
+  .callback_calc
+    padding: 50px 0 50px
 //Extra small: >0
 +media-breakpoint-down(xs)
   .section__title
@@ -268,7 +320,11 @@
           .header__link_phone
             color: $button_main
             &:before
-              border-bottom: none
+             border-bottom: none
+
+  .callback
+    padding: 40px 0 60px
+
   .form
     &__desc
       padding: 0 10px

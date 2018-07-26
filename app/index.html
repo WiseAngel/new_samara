@@ -33,45 +33,31 @@
 					<div class="header__links">
 						<ul class="header__links_list">
 							<li class="header__links_item">
-								<a href="#" class="header__link header__link_calc">Расчитать ипотеку</a>
+								<a href="#calculator" class="header__link header__link_calc slowly">Расчитать ипотеку</a>
 							</li>
 							<li class="header__links_item">
-								<a href="#" class="header__link header__link_map">Смотреть карту</a>
+								<a href="#map" class="header__link header__link_map slowly">Смотреть карту</a>
 							</li>
 							<li class="header__links_item">
-								<a href="#" class="header__link header__link_phone">+7 (846) 254-51-46</a>
+								<a href="tel:+78462295984" class="header__link header__link_phone">+7 (846) 254-51-46</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-auto d-none d-lg-block">
 					<div class="header__call-me">
-						<a href="#" class="header__link header__call-me_link">Перезвоните мне</a>
+						<a href="#callback" class="header__link header__call-me_link slowly">Перезвоните мне</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
-	<section class="hero">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col">
-					<div class="hero__slider">
-						<div class="hero__slide">
-							<div class="row">
-								<div class="col-xl-2 slide__content slide__content_left">
-								</div>
-								<div class="col-xl-5 offset-xl-5 slide__content slide__content_right">
-									<strong class="slide__speech_right">Ипотека
-										<br> от 6%</strong>
-									<p class="slide__desc_right">Банки ВТБ, Сбербанк и Абсолют снижают ставки по ипотеке в рамках программы господдержки!</p>
-									<button class="btn btn__slide">Подробнее</button>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+	<section class="hero" id="hero">
+		<div class="hero__slider">
+				<div class=hero__slide v-for="(slide, index) in slides" :key="index"><img :src="slide" alt="Слайд" class="slide__img"></div>
 			</div>
+		<div class="hero__mobile">
+			<p class="mobile__desc">Ипотека от 6 <span class="mobile__desc_percent">%</span></p>
 		</div>
 	</section>
 	<section class="callback" id="callback">
@@ -160,7 +146,7 @@
 								</div>
 								<div class="layout__btn_desc">
 									<a :href="layout.btnMore" class="btn layout__btn layout__btn_more">Узнать подробнее</a>
-									<a :href="layout.btnCalc" class="btn layout__btn layout__btn_calc" @click="transferCostToCalculator(layout.value)">Расчитать ипотеку</a>
+									<a :href="layout.btnCalc" class="btn layout__btn layout__btn_calc slowly" @click="transferCostToCalculator(layout.value)">Расчитать ипотеку</a>
 								</div>
 							</div>
 						</div>
@@ -264,7 +250,7 @@
 					</div>
 					<div class="col-xl-5 offset-xl-1 col-lg-5 offset-lg-1 col-md-10 offset-md-1 calculator__result">
 						<p class="result__title">Результат расчета платежей по ипотечному кредиту</p>
-						<div class="result__string" :class=`result__${item.name}` v-for="(item, index) of foo" :key="index">
+						<div class="result__string" :class=`result__${item.name}` v-for="(item, index) of calculatorResultArray" :key="index">
 							<span class="result__label">{{ item.label }}:</span>
 							<div class="result__values">
 								<span class="result__value">
@@ -282,11 +268,13 @@
 		<div class="calculator__policy">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-4 calculator__btn">
-						<a href="#callback_calc" class="btn calculator__btn_policy">Получить точный расчет</a>
+					<div class="col-lg-4 offset-lg-0 col-md-10 offset-md-1 calculator__btn">
+						<a href="#callback_calc" class="btn calculator__btn_policy slowly">Получить точный расчет</a>
 					</div>
-					<div class="col policy__text">
-						{{ policy }}
+					<div class="col col-md-10 offset-md-1 col-lg offset-lg-0">
+						<p class="policy__text">
+							{{ policy }}
+						</p>
 					</div>
 				</div>
 			</div>
