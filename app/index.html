@@ -168,7 +168,7 @@
 		</div>
 		<div class="rooms__info">
 			<div class="container">
-				<div class="row" v-for="(item, index) in showInformationAboutApartment" v-if="visible">
+				<div class="row" v-for="(item, index) in qw" v-if="visible">
 
 					<template>
 						<div class="col-md-6">
@@ -179,7 +179,7 @@
 								<h4 class="area__total">Площадь:
 									<strong class="total__value">{{ layouts[index].areaTotal }}</strong>кв.м.</h4>
 								<ul class="area__list">
-									<li class="area__room" v-for="(area, key, index) in layouts[index].areasPremises" :key="index">
+									<li class="area__room" v-for="(area, key, index) in qw[0].areasPremises" :key="index">
 										{{ key }} -
 										<span class="area__room_val">
 											{{ area }}

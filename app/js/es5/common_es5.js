@@ -239,7 +239,8 @@ var section__apartment = new Vue({
 						index: 10,
 						visible: false
 				}],
-				visible: false
+				visible: false,
+				qw: []
 
 		},
 
@@ -269,8 +270,8 @@ var section__apartment = new Vue({
 				},
 				showInformationAboutApartment: function showInformationAboutApartment(index) {
 						console.log(index);
+						this.qw = this.layouts.slice(index, index + 1);
 						this.visible = true;
-						return this.layouts[index];
 				}
 		},
 
