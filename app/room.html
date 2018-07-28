@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <!-- 	<base href="/"> -->
+  <title>New Samara</title>
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+  <!-- Template Basic Images Start -->
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="icon" href="img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <!-- Template Basic Images End -->
+  <!-- Custom Browsers Color Start -->
+  <meta name="theme-color" content="#000">
+  <!-- Custom Browsers Color End -->
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-auto col-md-2">
+          <div class="header__logo_wrap">
+            <img src="img/_main/logo.png" alt="Жилой микрорайон Новая Самара" class="header__logo">
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm col-md">
+          <div class="header__links">
+            <ul class="header__links_list">
+              <li class="header__links_item">
+                <a href="#calculator" class="header__link header__link_calc slowly">Расчитать ипотеку</a>
+              </li>
+              <li class="header__links_item">
+                <a href="#map" class="header__link header__link_map slowly">Смотреть карту</a>
+              </li>
+              <li class="header__links_item">
+                <a href="tel:+78462295984" class="header__link header__link_phone">+7 (846) 254-51-46</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <div class="header__call-me">
+            <a href="#callback" class="header__link header__call-me_link slowly">Перезвоните мне</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer__head">
+        <div class="head__logo head__logo_mobile">
+          <span class="footer__logo">{{ logo }}</span>
+          <span class="footer__date footer__date_mobile">{{ copyright }}</span>
+        </div>
+        <div class="footer__contacts">
+          <a :href="phone.link" class="contacts__phone contacts__link">{{ phone.text }}</a>
+          <a :href="docs.link" class="contacts__docs contacts__link">{{ docs.text }}</a>
+        </div>
+        <span class="footer__date footer__date_desctop">{{ copyright }}</span>
+      </div>
+      <div class="credit-information">
+        <p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
+        <a :href="privacyPolicy.link" class="privacy-policy">{{ privacyPolicy.text }}</a>
+      </div>
+    </div>
+  </footer>
+
+  <!--===Scripts===-->
+  <script src="js/scripts.min.js"></script>
+
+</body>
+
+</html>

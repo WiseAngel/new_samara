@@ -19,6 +19,6 @@ $('.hero__slider').slick({
   speed: 500,
   fade: true,
   cssEase: 'linear',
-  prevArrow: '<button type="button" class="slick-prev slider__nav slider__nav_prev"><img src="../img/_hero/slider__arrow_left.png" alt="Prev Slide" class="slider__nav_img"></button>',
-  nextArrow: '<button type="button" class="slick-next slider__nav slider__nav_next"><img src="../img/_hero/slider__arrow_right.png" alt="Next Slide" class="slider__nav_img"></button>'
+  prevArrow: '<button type="button" class="slick-prev slider__nav slider__nav_prev"><img src="img/_hero/slider__arrow_left.png" alt="Prev Slide" class="slider__nav_img"></button>',
+  nextArrow: '<button type="button" class="slick-next slider__nav slider__nav_next"><img src="img/_hero/slider__arrow_right.png" alt="Next Slide" class="slider__nav_img"></button>'
 });
