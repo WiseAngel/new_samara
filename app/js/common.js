@@ -36,7 +36,7 @@ $(function () {
       let elemMinVal = arrayValues[key].minValue;
 
 
-      if (String(elemInitVal).length > String(elemMaxVal).length) {
+      if (parseInt(elemInitVal) > parseInt(elemMaxVal) || parseInt(elemInitVal) < parseInt(elemMinVal)) {
         arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
         arrayValues[key].initialValue = elemMaxVal;
       }

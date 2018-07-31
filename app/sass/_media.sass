@@ -56,6 +56,18 @@
       &_calc
         padding: 12px 18px 8px
 
+  .apartment__btn
+    &_back
+      padding: 12px 20px 8px
+    &_calc
+      padding: 12px 23.6px 8px
+      margin-left: 0
+
+  .room
+    &__buttons
+      display: flex
+      justify-content: space-between
+
   .content
     &__bg_man
       background-size: contain
@@ -84,9 +96,11 @@
       display: block
 
   .section__title
+    
     padding: 80px 0
   .title
     font-size: 46px
+
   .header
     &__links
       &_item
@@ -97,12 +111,14 @@
             width: 20px
             height: 20px
             background-size: contain
+
   .callback
     &__input
       padding: 15px
       margin-bottom: 40px
       &_btn
         padding: 19px 0
+
   .form
     margin-bottom: 10px
     &__col
@@ -117,6 +133,10 @@
       padding: 35px 0
     &__layouts
       padding: 30px 0
+    &__btn
+      &_back, &_calc
+        width: 40%
+        text-align: center
 
   .options
     &__list
@@ -126,6 +146,9 @@
       padding: 15px 0
       &:before
         display: none
+  .room
+    &__buttons
+      justify-content: space-between
 
   .layout
     &_active
@@ -137,7 +160,8 @@
         padding: 12px 41.1px 8px
       &_calc
         padding: 12px 38px 8px
-
+  .room__img
+    max-height: 450px
   .content
     &__item
       font-size: 18px
@@ -145,11 +169,16 @@
       padding-top: 100px
     &__list
       padding-bottom: 40px
+
   .form__col
     padding: 0 10px
+
   .map-ya__points
     padding: 20px 20px 20px 25px
     width: 231px
+
+  #map-ya
+    height: 500px
 
   .calculator
     padding-bottom: 40px
@@ -180,6 +209,9 @@
 
   .policy__text
     padding-left: 0
+  .privacy-policy__title 
+    margin-bottom: 20px
+    font-size: 26px
 
 //Small: ≥576px
 +media-breakpoint-down(sm)
@@ -189,10 +221,24 @@
   .apartment
     &__layouts
       padding: 15px 0
+    &__btn
+      &_back, &_calc
+        width: 100%
+      &_back
+        margin-bottom: 20px
+
+  .room
+    &__buttons
+      flex-direction: column
+      align-items: center
+      width: 100%
+
   .section__title
     padding: 80px 0
+
   .title
     font-size: 38px
+
   .header
     &__link
       font-size: 16px
@@ -238,8 +284,6 @@
         font-size: 16px
       &_desc
         padding-left: 20px
-  .map__wrapper
-    height: 450px
 
   .options
     &__item
@@ -284,7 +328,9 @@
     &__watermark
       font-size: 40px
       line-height: 50px
-
+  #map-ya
+    height: 450px
+    
   .map-ya__points
     display: none
   
@@ -292,6 +338,13 @@
     padding: 0 15px
   .callback_calc
     padding: 50px 0 50px
+
+  .privacy-policy
+    &__title 
+      font-size: 24px
+    &__paragraph
+      font-size: 16px
+
 //Extra small: >0
 +media-breakpoint-down(xs)
   .section__title
@@ -368,7 +421,9 @@
         text-align: center
       &_calc
         text-align: center
-
+  .apartment__btn_back
+    width: 100%
+    text-align: center
   .content
     &__item
       font-size: 14px
@@ -402,13 +457,19 @@
     &:nth-last-of-type(2)
       margin-bottom: 0
 
-  .privacy-policy
+  .privacy-policy__link
    display: block 
 
   .contacts
     &__phone
       padding-bottom: 6px
-      
+
+  .privacy-policy
+    &__wrap    
+      padding-top: 100px
+    &__title
+      font-size: 22px
+
 /*==========  Mobile First  ==========*/
 
 //Extra small: <576px

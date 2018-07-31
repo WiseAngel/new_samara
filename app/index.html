@@ -66,7 +66,7 @@
 	</section>
 	<section class="callback" id="callback">
 		<div class="container">
-			<form action="" class="form">
+			<form class="form">
 				<!-- Hidden Required Fields -->
 				<input type="hidden" name="project_name" value="New Samara">
 				<input type="hidden" name="admin_email" value="">
@@ -122,14 +122,14 @@
 		<div class="section__title  apartment__title">
 			<h2 class="title">{{ title }}</h2>
 		</div>
-		<div class="apartment__options">
+		<div class="apartment__options" id="apartment__options" v-show="!visible">
 			<ul class="options__list">
 				<li class="options__item" v-for="(option, index) in options" :key="index" @click="changeLayoutOptions(index)" :class="{ layout_active: option.isActive}">
 					{{ option.option }}
 				</li>
 			</ul>
 		</div>
-		<div class="apartment__layouts">
+		<div class="apartment__layouts" id="apartment__layouts" v-show="!visible">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6" v-for="(layout, index) in sortedLayouts.slice(offset, offset + perPage)" :key="index">
@@ -149,7 +149,7 @@
 									</div>
 								</div>
 								<div class="layout__btn_desc">
-									<span href="" class="btn layout__btn layout__btn_more" @click="showInformationAboutApartment(layout.index)">Узнать подробнее</span>
+									<a href="#apartment" class="btn layout__btn layout__btn_more" @click="showInformationAboutApartment(layout.index)">Узнать подробнее</a>
 									<a :href="layout.btnCalc" class="btn layout__btn layout__btn_calc slowly" @click="transferCostToCalculator(layout.value)">Расчитать ипотеку</a>
 								</div>
 							</div>
@@ -166,33 +166,49 @@
 				</div>
 			</div>
 		</div>
-		<div class="rooms__info">
+		<div class="rooms__info" id="rooms__info" v-show="visible">
 			<div class="container">
-				<div class="row" v-for="(item, index) in qw" v-if="visible">
-
-					<template>
-						<div class="col-md-6">
-							<img src="img/_apartment-layout/1/1.jpg" alt="1-комнатная" class="room__img">
+				<div class="row" v-for="(apartment, index) in selectedApartment">
+					<div class="col-lg-6">
+						<div class="apartment__location">
+							<div class="location__info location__section">Секция: {{ apartment.section }}</div>
+							<div class="location__info location__number">Номер квартиры: {{ apartment.number }}</div>
+							<div class="location__info location__floor">Этаж: {{ apartment.floor }}</div>
+							<img :src="apartment.imgInfo" :alt="apartment.alt" class="room__img">
 						</div>
-						<div class="col-md-6">
-							<div class="rooms__area">
-								<h4 class="area__total">Площадь:
-									<strong class="total__value">{{ layouts[index].areaTotal }}</strong>кв.м.</h4>
-								<ul class="area__list">
-									<li class="area__room" v-for="(area, key, index) in qw[0].areasPremises" :key="index">
-										{{ key }} -
-										<span class="area__room_val">
-											{{ area }}
-										</span>
-										кв.м.
-									</li>
-								</ul>
-							</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="rooms__area">
+							<h4 class="area__total">Площадь:
+								<strong class="total__value">{{ apartment.areaTotal }} кв.м.</strong>
+							</h4>
+							<ul class="area__list">
+								<li class="area__room" v-for="(area, key, index) in selectedApartment[0].areasPremises" :key="index">
+									{{ key }} -
+									<span class="area__room_val">
+										{{ area }}
+									</span>
+									кв.м.
+								</li>
+							</ul>
 						</div>
-					</template>
-
-
-
+						<div class="apartment__decoration">
+							<p class="decoration__title">{{ decoration.title }}</p>
+							<ul class="decoration__list">
+								<li class="decoration__service" v-for="(service, index) in decoration.list" :key="index">{{ service }}</li>
+							</ul>
+						</div>
+						<p class="room__price">Стоимость:
+							<strong class="price__value">
+								{{ apartment.value }} руб.
+							</strong>
+						</p>
+						<p class="room__finishing">Стоимость квартиры с чистовой отделкой уточняйте по телефону</p>
+						<div class="room__buttons">
+							<a href="#apartment" class="btn apartment__btn_back" @click="visible=!visible">Вернуться к списку</a>
+							<a :href="apartment.btnCalc" class="btn apartment__btn_calc slowly" @click="transferCostToCalculator(apartment.value)">Расчитать ипотеку</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -361,11 +377,21 @@
 			</div>
 			<div class="credit-information">
 				<p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
-				<a :href="privacyPolicy.link" class="privacy-policy">{{ privacyPolicy.text }}</a>
+				<span class="privacy-policy__link" @click="foo">{{ policyText }}</span>
 			</div>
 		</div>
 	</footer>
-
+	<div class="privacy-policy" id="privacy-policy" v-if="visible">
+		<div class="container privacy-policy__container">
+			<div class="row privacy-policy__row">
+				<div class="col privacy-policy__wrap">
+					<span class="privacy-policy__close fontello__close" @click="closePolicy"></span>
+					<h2 class="privacy-policy__title">{{ policyTitle }}</h2>
+					<p class="privacy-policy__paragraph" v-for="(paragraph, index) in policyText" :key="index"> {{ paragraph }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!--===Scripts===-->
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
 	<script src="js/scripts.min.js"></script>

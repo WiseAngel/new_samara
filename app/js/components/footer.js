@@ -2,7 +2,7 @@ let footer = new Vue({
   el: '#footer',
   data: {
     logo: 'S.N.S',
-    phone:{
+    phone: {
       text: '+7 (846) 229-59-84',
       link: 'tel:+78462295984',
     },
@@ -25,11 +25,17 @@ let footer = new Vue({
       'ВТБ (ПАО) оказывает исключительно банковские услуги и не участвует в строительстве объектов или продаже недвижимости. Условия действительны на 15.01.2019 г. ВТБ (ПАО). Генеральная лицензия Банка России № 1000. Реклама.',
       'Проектная декларация размещена на сайте www.new-samara.ru.'
     ],
-    privacyPolicy: {
-      text: 'Политика конфиденциальности.',
-      link: 'https://www.ya.ru'
-    },
+
+    policyText: 'Политика конфиденциальности.'
+
   },
+  methods: {
+    foo() {
+      document.body.style.overflowY = "hidden";
+      privacyPolicy.visible = true;
+    }
+  },
+
   computed: {
     copyright() {
       let dateCopy = new Date().getFullYear();
