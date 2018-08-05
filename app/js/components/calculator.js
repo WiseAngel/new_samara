@@ -77,18 +77,19 @@ let section__calculator = new Vue({
 
   },
   computed: {
-    initialFee() {
-      let price = this.calculatorValues['apartment-price'].initialValue;
-      // let feeInit = this.calculatorValues['initial-fee'].initialValue;
-      // let feeMax = this.calculatorValues['initial-fee'].maxValue;
-      // let feeMin = this.calculatorValues['initial-fee'].minValue;
-
-      this.calculatorValues['initial-fee'].minValue = price * 0.2;
-      this.calculatorValues['initial-fee'].maxValue = price - 500000;
-      // this.calculatorValues['initial-fee'].initialValue = feeInit > feeMax ? feeMax : feeInit;
-      // this.calculatorValues['initial-fee'].initialValue = feeInit < feeMin ? feeMin : feeInit;
-      this.calculatorValues['initial-fee'].initialValue = this.calculatorValues['initial-fee'].minValue;
-    },
+    // initialFee() {
+    //   let price = this.calculatorValues['apartment-price'].initialValue;
+    //   let initFee = this.calculatorValues['initial-fee'].initialValue;
+    //   let minFee = this.calculatorValues['initial-fee'].minValue;
+    //   let maxFee = this.calculatorValues['initial-fee'].maxValue;
+    //   this.calculatorValues['initial-fee'].minValue = price * 0.2;
+    //   this.calculatorValues['initial-fee'].maxValue = price - 500000;
+    //   if (initFee < minFee) {
+    //     this.calculatorValues['initial-fee'].initialValue = minFee;
+    //   } else if (initFee > maxFee) {
+    //     this.calculatorValues['initial-fee'].initialValue = maxFee;
+    //   }
+    // },
 
     creditAmount() {
       let priceInit = this.calculatorValues['apartment-price'].initialValue;
@@ -148,6 +149,25 @@ let section__calculator = new Vue({
       this.overpaymentAmountBlock.initialValue = overpayment;
       return overpayment;
     }
+  },
 
-  }
+  updated() {
+
+    let price = this.calculatorValues['apartment-price'].initialValue;
+      let initFee = this.calculatorValues['initial-fee'].initialValue;
+      let minFee = this.calculatorValues['initial-fee'].minValue;
+      let maxFee = this.calculatorValues['initial-fee'].maxValue;
+      this.calculatorValues['initial-fee'].minValue = price * 0.2;
+      this.calculatorValues['initial-fee'].maxValue = price - 500000;
+      if (initFee < minFee) {
+        this.calculatorValues['initial-fee'].initialValue = minFee;
+      } else if (initFee > maxFee) {
+        this.calculatorValues['initial-fee'].initialValue = maxFee;
+      } else {
+        this.calculatorValues['initial-fee'].initialValue = this.calculatorValues['initial-fee'].initialValue;
+      };
+
+    // this.initialFee;
+    this.declinationOfYear;
+  },
 });

@@ -60,7 +60,7 @@ gulp.task('js', ['babeling'], function () {
       'app/js/es5/common_es5.js', // Always at the end
     ])
     .pipe(concat('scripts.min.js'))
-    .pipe(uglify()) // Mifify js (opt.)
+    // .pipe(uglify()) // Mifify js (opt.)
     .pipe(gulp.dest('app/js'))
     .pipe(browsersync.reload({
       stream: true
