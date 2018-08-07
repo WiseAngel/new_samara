@@ -10,4 +10,4 @@ out/
 dist/
 node_modules/
 coverage/
-2gulpfile.js
+uncompressed/

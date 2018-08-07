@@ -53,9 +53,9 @@ gulp.task('sass', function () {
 gulp.task('js', ['babeling'], function () {
   return gulp.src([
       'app/libs/jquery/dist/jquery.min.js',
-      'app/libs/Vue/vue.min.js',
-      'app/libs/gallery/lightgallery.min.js',
-      'app/libs/gallery/lg-thumbnail.min.js',
+      'app/libs/Vue/vue.js',
+      'app/libs/lightGallery-master/dist/js/lightgallery.min.js',
+      'app/libs/lightGallery-master/modules/lg-thumbnail.min.js',
       'app/libs/slick/slick.min.js',
       'app/js/es5/common_es5.js', // Always at the end
     ])
