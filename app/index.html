@@ -272,7 +272,7 @@
 							<div class="value-change__wrapper">
 								<div class="input__wrapper">
 									<input type="range" class="value-change__input" :name="inputValue.name" :id="inputValue.name" :min="inputValue.minValue"
-									  :max="inputValue.maxValue" :step="inputValue.step" v-model="inputValue.initialValue">
+									  :max="inputValue.maxValue" :step="inputValue.step" v-model.number="inputValue.initialValue">
 									<div class="input__desc">
 										<span class="input__desc_min">
 											{{ inputValue.labelMinValue }}
@@ -283,7 +283,7 @@
 									</div>
 								</div>
 								<div class="input__wrapper_text">
-									<input type="text" class="value-change__input_text" v-model.lazy.trim="inputValue.initialValue">
+									<input type="text" class="value-change__input_text" v-model.lazy.trim.number="inputValue.initialValue">
 									<span class="input__unit">{{ inputValue.unit }}</span>
 								</div>
 							</div>

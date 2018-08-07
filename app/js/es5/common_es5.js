@@ -439,7 +439,7 @@ var section__calculator = new Vue({
 		methods: {},
 		computed: {
 				// initialFee() {
-				//   let price = this.calculatorValues['apartment-price'].initialValue;
+				//   let price = this.calculatorValues['apartment-price'].initialValue; // перенесено в updated
 				//   let initFee = this.calculatorValues['initial-fee'].initialValue;
 				//   let minFee = this.calculatorValues['initial-fee'].minValue;
 				//   let maxFee = this.calculatorValues['initial-fee'].maxValue;
@@ -524,7 +524,6 @@ var section__calculator = new Vue({
 						this.calculatorValues['initial-fee'].initialValue = this.calculatorValues['initial-fee'].initialValue;
 				};
 
-				// this.initialFee;
 				this.declinationOfYear;
 		}
 });
@@ -1017,11 +1016,10 @@ $(function () {
 						var elemMaxVal = arrayValues[key].maxValue;
 						var elemMinVal = arrayValues[key].minValue;
 
-						if (parseInt(elemInitVal) > parseInt(elemMaxVal) || parseInt(elemInitVal) < parseInt(elemMinVal)) {
-								arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
-								arrayValues[key].initialValue = elemMaxVal;
-						}
-
+						// if (parseInt(elemInitVal) > parseInt(elemMaxVal) || parseInt(elemInitVal) < parseInt(elemMinVal)) {  // заменено модификатором .number
+						//   arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
+						//   arrayValues[key].initialValue = elemMaxVal;
+						// }
 						if (elemInitVal > elemMaxVal) {
 								arrayValues[key].initialValue = elemMaxVal;
 						} else if (elemInitVal < elemMinVal) {

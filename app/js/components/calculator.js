@@ -78,7 +78,7 @@ let section__calculator = new Vue({
   },
   computed: {
     // initialFee() {
-    //   let price = this.calculatorValues['apartment-price'].initialValue;
+    //   let price = this.calculatorValues['apartment-price'].initialValue; // перенесено в updated
     //   let initFee = this.calculatorValues['initial-fee'].initialValue;
     //   let minFee = this.calculatorValues['initial-fee'].minValue;
     //   let maxFee = this.calculatorValues['initial-fee'].maxValue;
@@ -167,7 +167,6 @@ let section__calculator = new Vue({
         this.calculatorValues['initial-fee'].initialValue = this.calculatorValues['initial-fee'].initialValue;
       };
 
-    // this.initialFee;
     this.declinationOfYear;
   },
 });

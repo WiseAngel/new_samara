@@ -34,13 +34,11 @@ $(function () {
       let elemInitVal = arrayValues[key].initialValue;
       let elemMaxVal = arrayValues[key].maxValue;
       let elemMinVal = arrayValues[key].minValue;
-
-
-      if (parseInt(elemInitVal) > parseInt(elemMaxVal) || parseInt(elemInitVal) < parseInt(elemMinVal)) {
-        arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
-        arrayValues[key].initialValue = elemMaxVal;
-      }
-
+      
+      // if (parseInt(elemInitVal) > parseInt(elemMaxVal) || parseInt(elemInitVal) < parseInt(elemMinVal)) {  // заменено модификатором .number
+      //   arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
+      //   arrayValues[key].initialValue = elemMaxVal;
+      // }
       if (elemInitVal > elemMaxVal) {
         arrayValues[key].initialValue = elemMaxVal;
       } else if (elemInitVal < elemMinVal) {
