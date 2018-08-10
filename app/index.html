@@ -149,8 +149,8 @@
 									</div>
 								</div>
 								<div class="layout__btn_desc">
-									<a href="#apartment" class="btn layout__btn layout__btn_more" @click="showInformationAboutApartment(layout.index)">Узнать подробнее</a>
-									<a :href="layout.btnCalc" class="btn layout__btn layout__btn_calc slowly" @click="transferCostToCalculator(layout.value)">Расчитать ипотеку</a>
+									<a href="#apartment" class="btn layout__btn layout__btn_more slowly" @click="showInformationAboutApartment(layout.index)">Узнать подробнее</a>
+									<a href="#calculator" class="btn layout__btn layout__btn_calc slowly" @click="transferCostToCalculator(layout.value)">Расчитать ипотеку</a>
 								</div>
 							</div>
 						</div>
@@ -205,8 +205,8 @@
 						</p>
 						<p class="room__finishing">Стоимость квартиры с чистовой отделкой уточняйте по телефону</p>
 						<div class="room__buttons">
-							<a href="#apartment" class="btn apartment__btn_back" @click="visible=!visible">Вернуться к списку</a>
-							<a :href="apartment.btnCalc" class="btn apartment__btn_calc slowly" @click="transferCostToCalculator(apartment.value)">Расчитать ипотеку</a>
+							<a href="#apartment" class="btn apartment__btn_back slowly" @click="visible=!visible">Вернуться к списку</a>
+							<a href="#calculator" class="btn apartment__btn_calc slowly" @click="transferCostToCalculator(apartment.value)">Расчитать ипотеку</a>
 						</div>
 					</div>
 				</div>

@@ -2,7 +2,7 @@ $(function () {
   /*
    ** section__gallery
    */
-  $("#lightgallery").lightGallery({
+  $('#lightgallery').lightGallery({
     thumbnail: true,
     selector: '.gallery__item',
     download: false
@@ -29,12 +29,12 @@ $(function () {
    */
   $('.value-change__input_text').on('change', () => {
     let arrayValues = section__calculator.calculatorValues;
- 
+
     for (const key in arrayValues) {
       let elemInitVal = arrayValues[key].initialValue;
       let elemMaxVal = arrayValues[key].maxValue;
       let elemMinVal = arrayValues[key].minValue;
-      
+
       // if (parseInt(elemInitVal) > parseInt(elemMaxVal) || parseInt(elemInitVal) < parseInt(elemMinVal)) {  // заменено модификатором .number
       //   arrayValues[key].initialValue = String(arrayValues[key].initialValue).replace(/[^0-9]/gim, '');
       //   arrayValues[key].initialValue = elemMaxVal;
@@ -79,13 +79,13 @@ $(function () {
     return String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ')
   };
 
-  $(".slowly").on("click", function (event) {
+  $('.slowly').on('click', function (event) {
     event.preventDefault();
-    var id = $(this).attr('href'),
-      top = $(id).offset().top;
+    let id = $(this).attr('href'),
+        top = $(id).offset().top;
     $('body,html').animate({
       scrollTop: top
     }, 600);
   });
-  
+
 });

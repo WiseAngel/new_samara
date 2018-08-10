@@ -65,7 +65,6 @@ var section__apartment = new Vue({
 						section: 2,
 						number: 6,
 						floor: 2,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '15,09',
 								'Холл': '4,44',
@@ -84,7 +83,6 @@ var section__apartment = new Vue({
 						section: 3,
 						number: 149,
 						floor: 9,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '15,09',
 								'Холл': '4,44',
@@ -103,7 +101,6 @@ var section__apartment = new Vue({
 						section: 2,
 						number: 4,
 						floor: 2,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '19,03',
 								'Холл': '2,97',
@@ -122,7 +119,6 @@ var section__apartment = new Vue({
 						section: 2,
 						number: 73,
 						floor: 10,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '18,95',
 								'Холл': '3,57',
@@ -141,7 +137,6 @@ var section__apartment = new Vue({
 						section: 3,
 						number: 83,
 						floor: 2,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '14,91',
 								'Холл': '3,57',
@@ -160,7 +155,6 @@ var section__apartment = new Vue({
 						section: 2,
 						number: 52,
 						floor: 7,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '19,03',
 								'Холл': '2,97',
@@ -179,7 +173,6 @@ var section__apartment = new Vue({
 						section: 4,
 						number: 64,
 						floor: 7,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '15,09',
 								'Холл': '4,44',
@@ -198,7 +191,6 @@ var section__apartment = new Vue({
 						section: 4,
 						number: 67,
 						floor: 8,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '15,09',
 								'Холл': '4,44',
@@ -217,7 +209,6 @@ var section__apartment = new Vue({
 						section: 4,
 						number: 63,
 						floor: 8,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '20,60',
 								'Спальня': '14,50',
@@ -237,7 +228,6 @@ var section__apartment = new Vue({
 						section: 11,
 						number: 3,
 						floor: 1,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '14,74',
 								'Спальня': '11,13',
@@ -259,7 +249,6 @@ var section__apartment = new Vue({
 						section: 2,
 						number: 80,
 						floor: 10,
-						btnCalc: '#calculator',
 						areasPremises: (_areasPremises = {
 								'Гостиная': '16,24',
 								'Спальня': '14,74'
@@ -277,7 +266,6 @@ var section__apartment = new Vue({
 						section: 2,
 						number: 6,
 						floor: 2,
-						btnCalc: '#calculator',
 						areasPremises: {
 								'Гостиная': '15,09',
 								'Холл': '4,44',
@@ -983,7 +971,7 @@ $(function () {
 		/*
    ** section__gallery
    */
-		$("#lightgallery").lightGallery({
+		$('#lightgallery').lightGallery({
 				thumbnail: true,
 				selector: '.gallery__item',
 				download: false
@@ -1060,7 +1048,7 @@ $(function () {
 				return String(str).replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 		};
 
-		$(".slowly").on("click", function (event) {
+		$('.slowly').on('click', function (event) {
 				event.preventDefault();
 				var id = $(this).attr('href'),
 				    top = $(id).offset().top;
