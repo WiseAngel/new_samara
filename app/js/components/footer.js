@@ -30,8 +30,9 @@ let footer = new Vue({
 
   },
   methods: {
-    foo() {
-      document.body.style.overflowY = "hidden";
+    displayPolicy() {
+      // document.body.style.overflowY = "hidden";
+      $('body').css('overflowY', 'hidden');
       privacyPolicy.visible = true;
     }
   },

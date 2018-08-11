@@ -552,8 +552,9 @@ var footer = new Vue({
 
 		},
 		methods: {
-				foo: function foo() {
-						document.body.style.overflowY = "hidden";
+				displayPolicy: function displayPolicy() {
+						// document.body.style.overflowY = "hidden";
+						$('body').css('overflowY', 'hidden');
 						privacyPolicy.visible = true;
 				}
 		},

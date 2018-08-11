@@ -376,7 +376,7 @@
 			</div>
 			<div class="credit-information">
 				<p class="information__paragraph" v-for="(item, index) in creditInformation" :key="index">{{ item }}</p>
-				<span class="privacy-policy__link" @click="foo">{{ policyText }}</span>
+				<span class="privacy-policy__link" @click="displayPolicy">{{ policyText }}</span>
 			</div>
 		</div>
 	</footer>
