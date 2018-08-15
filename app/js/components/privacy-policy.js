@@ -24,7 +24,8 @@ let privacyPolicy = new Vue({
   methods: {
     closePolicy() {
       this.visible = false;
-      document.body.style.overflowY = "auto";
+      // document.body.style.overflowY = "auto";
+      $('body').css('overflowY', 'auto');
     }
   }
 })

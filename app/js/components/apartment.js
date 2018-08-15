@@ -334,4 +334,3 @@ let section__apartment = new Vue({
 		this.sortedLayouts = this.oneRoomsApartments;
 	},
 });
-// section__apartment.sortedLayouts = section__apartment.oneRoomsApartments;
